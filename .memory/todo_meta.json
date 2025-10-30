@@ -3,30 +3,51 @@
     "Coordinator": {
       "1": {
         "id": "1",
-        "content": "Analisis website ZKx401 saat ini untuk mengidentifikasi utilities real-time yang tersedia",
-        "details": "1. Review semua komponen dan fitur yang saat ini terlihat\n2. Identifikasi utilities yang bisa diakses secara real-time\n3. Dokumentasikan state website saat ini",
-        "status": "completed",
+        "content": "Analisis dan referensi design chart dari x402scan.com/facilitators",
+        "details": "1. Ekstrak design pattern dari referensi\n2. Analisis color scheme, typography, spacing\n3. Identifikasi clean chart elements\n4. Dokumentasikan best practices untuk professional chart design",
+        "status": "pending",
         "priority": "high"
       },
       "2": {
         "id": "2",
-        "content": "Research referensi design daydreams.systems/tokenomics",
-        "details": "1. Extract content dan design elements dari https://www.daydreams.systems/tokenomics\n2. Analisis layout structure, color scheme, typography\n3. Identifikasi key design patterns yang harus ditiru",
-        "status": "completed",
+        "content": "Redesign chart components menjadi ultra-clean dan professional",
+        "details": "1. Perbaiki NetworkMonitor charts (Transaction Volume, USDC Price)\n2. Hapus elemen visual yang tidak perlu\n3. Implementasi minimal gradient dan clean colors\n4. Perbaiki typography dan spacing\n5. Add subtle animations yang tidak distracting",
+        "status": "pending",
         "priority": "high"
       },
       "3": {
         "id": "3",
-        "content": "Redesign layout website ZKx401 berdasarkan referensi daydreams",
-        "details": "1. Hapus layout yang tidak berguna\n2. Tambahkan utilities real-time yang valuable\n3. Implement design yang mirip daydreams tokenomics\n4. Optimasi UX dan visual hierarchy",
-        "status": "completed",
-        "priority": "high"
+        "content": "Hapus semua AI-generated images dan random assets",
+        "details": "1. Remove gambar yang ada di public/images/\n2. Replace dengan clean vector icons atau minimal graphics\n3. Pastikan semua visual elements professional\n4. Update komponen yang menggunakan gambar tersebut",
+        "status": "pending",
+        "priority": "medium"
       },
       "4": {
         "id": "4",
-        "content": "Implement dan test website yang sudah diperbaiki",
-        "details": "1. Build dan deploy website baru\n2. Test semua functionality\n3. Verify real-time utilities bekerja dengan baik\n4. Push ke repository",
-        "status": "completed",
+        "content": "Implementasi use cases section dengan onchain proof",
+        "details": "1. Buat section Use Cases yang interactive\n2. Tambahkan real-world x402 payment examples\n3. Implementasi onchain transaction verification\n4. Add live transaction examples dari Solana explorer\n5. Create proof-of-concept integrations",
+        "status": "pending",
+        "priority": "high"
+      },
+      "5": {
+        "id": "5",
+        "content": "Enhance 'Start Integration' functionality",
+        "details": "1. Redesign button dan flow\n2. Add interactive demo\n3. Connect dengan real use cases\n4. Add onboarding steps\n5. Integrate dengan onchain verification\n6. Create developer-friendly interface",
+        "status": "pending",
+        "priority": "high"
+      },
+      "6": {
+        "id": "6",
+        "content": "Polish overall UI/UX untuk world-class appearance",
+        "details": "1. Refine color gradients dan micro-interactions\n2. Improve responsive design\n3. Add loading states dan skeleton UI\n4. Optimize performance\n5. Add accessibility improvements\n6. Test di berbagai devices",
+        "status": "pending",
+        "priority": "medium"
+      },
+      "7": {
+        "id": "7",
+        "content": "Deploy dan testing final website",
+        "details": "1. Build dan deploy ke production\n2. Test semua functionality\n3. Verify onchain integrations\n4. Performance testing\n5. Cross-browser testing\n6. Mobile responsiveness check",
+        "status": "pending",
         "priority": "medium"
       }
     }
