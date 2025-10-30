@@ -60,3 +60,17 @@ Ready for development - user will proceed to build the website using these speci
 
 **Created:** 2025-10-30
 **Version:** 1.0
+
+---
+
+## REDESIGN REQUEST - 2025-10-31
+
+**New Requirements:**
+- Focus on REAL-TIME UTILITIES (Solana network status, USDC price, agent deployment monitor, ZK proof stats, payment dashboard, activity feed)
+- Professional AI agent platform inspiration
+- Data-driven interface dengan live statistics
+- Dark theme dengan neon accents (blue #00d4ff, green #00ff88, purple #8b5cf6)
+- Remove: BootScreen, heavy animations
+- Add: Real-time monitoring dashboards, live data cards
+
+**Status:** 🔄 IN PROGRESS - Proposing redesign direction

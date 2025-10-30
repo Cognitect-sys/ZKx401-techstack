@@ -5,21 +5,21 @@
         "id": "1",
         "content": "Analisis website ZKx401 saat ini untuk mengidentifikasi utilities real-time yang tersedia",
         "details": "1. Review semua komponen dan fitur yang saat ini terlihat\n2. Identifikasi utilities yang bisa diakses secara real-time\n3. Dokumentasikan state website saat ini",
-        "status": "pending",
+        "status": "completed",
         "priority": "high"
       },
       "2": {
         "id": "2",
         "content": "Research referensi design daydreams.systems/tokenomics",
         "details": "1. Extract content dan design elements dari https://www.daydreams.systems/tokenomics\n2. Analisis layout structure, color scheme, typography\n3. Identifikasi key design patterns yang harus ditiru",
-        "status": "pending",
+        "status": "completed",
         "priority": "high"
       },
       "3": {
         "id": "3",
         "content": "Redesign layout website ZKx401 berdasarkan referensi daydreams",
         "details": "1. Hapus layout yang tidak berguna\n2. Tambahkan utilities real-time yang valuable\n3. Implement design yang mirip daydreams tokenomics\n4. Optimasi UX dan visual hierarchy",
-        "status": "pending",
+        "status": "in_progress",
         "priority": "high"
       },
       "4": {
