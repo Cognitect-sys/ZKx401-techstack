@@ -18,6 +18,10 @@ export default function BootScreen({ onComplete }: BootScreenProps) {
     'Loading developer APIs...',
     'Setting up privacy protocols...',
     'Initializing agent deployment system...',
+    'Loading zero-knowledge proof engines...',
+    'Compiling privacy-preserving algorithms...',
+    'Connecting to decentralized network...',
+    'Validating cryptographic protocols...',
     'Boot sequence complete. Welcome to ZKx401.',
     '',
     '🚀 Agent Platform Ready',
@@ -72,11 +76,11 @@ console.log('Payment processed anonymously:', payment.hash);`
           setTimeout(() => {
             setIsVisible(false);
             setTimeout(onComplete, 500); // Small fade-out delay
-          }, 1500); // Show completion message for 1.5s
+          }, 2000); // Show completion message for 2s
         }
         return next;
       });
-    }, 300); // 300ms between lines
+    }, 500); // 500ms between lines
 
     return () => clearInterval(timer);
   }, [onComplete]);
@@ -102,9 +106,6 @@ console.log('Payment processed anonymously:', payment.hash);`
         <div className="w-full max-w-4xl mx-auto p-8">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500/20 rounded-lg mb-4 animate-pulse">
-              <span className="text-3xl font-bold text-green-400">Z</span>
-            </div>
             <h1 className="text-2xl font-bold text-white mb-2">ZKx401 Agent Platform</h1>
             <p className="text-green-400 text-sm">Launching Private Agents with Privacy Integration</p>
           </div>
