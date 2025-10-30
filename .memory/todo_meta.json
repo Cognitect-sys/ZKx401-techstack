@@ -1,0 +1,41 @@
+{
+  "todos": {
+    "Coordinator": {
+      "1": {
+        "id": "1",
+        "content": "Riset teknologi Zero-Knowledge untuk Solana",
+        "details": "1. Penelitianzk-SNARKs vs zk-STARKs untuk Solana\n2. Analisis library seperti circom, snarkjs, atau@zk-kit\n3. Evaluasi privacy features yang bisa ditambahkan ke x402\n4. Tentukan approach untuk private payments",
+        "status": "pending",
+        "priority": "high"
+      },
+      "2": {
+        "id": "2",
+        "content": "Desain arsitektur ZKx401",
+        "details": "1. Modifikasi protokol x402 untuk mendukung privacy\n2. Design private payment flow dengan ZK proofs\n3. Tentukan format X-PAYMENT header untuk private transactions\n4. Plan untuk anonymous token transfers\n5. Integration dengan existing x402-solana codebase",
+        "status": "pending",
+        "priority": "high"
+      },
+      "3": {
+        "id": "3",
+        "content": "Implementasi core ZKx401 library",
+        "details": "1. Clone dan modify x402-solana codebase\n2. Implement ZK proof generation untuk payments\n3. Modify payment verification untuk support private payments\n4. Add anonymous transaction support\n5. Maintain backward compatibility dengan x402",
+        "status": "pending",
+        "priority": "high"
+      },
+      "4": {
+        "id": "4",
+        "content": "Build example applications",
+        "details": "1. Create private payment server example\n2. Build privacy-focused client example\n3. Demo anonymous API access\n4. Showcase private transaction verification",
+        "status": "pending",
+        "priority": "medium"
+      },
+      "5": {
+        "id": "5",
+        "content": "Testing dan documentation",
+        "details": "1. Unit tests untuk ZK functionality\n2. Integration tests dengan Solana\n3. End-to-end testing dengan example apps\n4. Create comprehensive documentation\n5. Migration guide dari x402 ke ZKx401",
+        "status": "pending",
+        "priority": "medium"
+      }
+    }
+  }
+}
