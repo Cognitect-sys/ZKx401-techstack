@@ -10,8 +10,8 @@
       },
       "2": {
         "id": "2",
-        "content": "Desain arsitektur ZKx401 + UI/UX",
-        "details": "1. Modifikasi protokol x402 untuk mendukung privacy\n2. Design private payment flow dengan ZK proofs\n3. Tentukan format X-PAYMENT header untuk private transactions\n4. Plan untuk anonymous token transfers\n5. Integration dengan existing x402-solana codebase\n6. UI/UX Design: Modern, clean, professional dengan nuansa blockchain/crypto\n7. Animated background design mirip zkpass.org (futuristic, tech-focused)\n8. Color scheme professional dengan kontras yang baik\n9. Layout patterns terstruktur (hero section, features, partnerships)",
+        "content": "Build profesional ZKx401 website",
+        "details": "1. Create website mirip zkpass.org tapi natural-looking (bukan AI-generated)\n2. Implement animated background seperti referensi\n3. Remove semua development indicators\n4. Include ZKx401 content dan npm package reference\n5. Professional UI/UX dengan clean design\n6. Responsive design untuk semua device\n7. Modern typography dan color scheme\n8. Hero section, features, partnerships layout",
         "status": "pending",
         "priority": "high"
       },
