@@ -1,0 +1,70 @@
+{
+  "_source_id": 9,
+  "sources": {
+    "ZK Libraries Analysis for Solana": {
+      "https://zkkit.org/": {
+        "id": 1,
+        "publisher": "ZK-Kit Team",
+        "url": "https://zkkit.org/",
+        "title": "ZK-Kit: Zero-Knowledge Development Libraries",
+        "info": "Comprehensive overview of ZK-Kit libraries including API documentation, features, supported languages (JavaScript, Circom, Noir, Solidity, Rust), and use cases like MACI, Privacy Pools, Zupass"
+      },
+      "https://docs.circom.io/": {
+        "id": 2,
+        "publisher": "iden3",
+        "url": "https://docs.circom.io/",
+        "title": "Circom 2 Documentation",
+        "info": "Official documentation for Circom circuit compiler v2.2.3 written in Rust, including language features, Circomlib templates, API specifications, and 1.5k GitHub stars"
+      },
+      "https://github.com/iden3/snarkjs": {
+        "id": 3,
+        "publisher": "iden3",
+        "url": "https://github.com/iden3/snarkjs",
+        "title": "SnarkJS: zkSNARK implementation in JavaScript & WASM",
+        "info": "JavaScript and WASM implementation of zkSNARK supporting Groth16, PLONK, FFLONK with 2k GitHub stars, Node.js/browser compatibility, and trusted setup ceremony support"
+      },
+      "https://arkworks.rs/": {
+        "id": 4,
+        "publisher": "Arkworks Team",
+        "url": "https://arkworks.rs/",
+        "title": "Arkworks: Rust ecosystem for zkSNARK",
+        "info": "Comprehensive Rust ecosystem for zkSNARK programming with implementations of Groth16, Marlin, GM17, finite fields, elliptic curves, and R1CS constraints"
+      },
+      "https://docs.rs/solana-zk-sdk": {
+        "id": 5,
+        "publisher": "Solana/Anza Team",
+        "url": "https://docs.rs/solana-zk-sdk",
+        "title": "Solana ZK SDK Documentation",
+        "info": "Official Solana crate for creating and verifying zero-knowledge proofs on encrypted data, version 4.0.0, 45.96% documentation coverage, supports zk-token and ZK ElGamal proof programs"
+      },
+      "https://github.com/Lightprotocol/light-protocol": {
+        "id": 6,
+        "publisher": "Light Protocol Team",
+        "url": "https://github.com/Lightprotocol/light-protocol",
+        "title": "Light Protocol: The ZK Compression Protocol For Solana",
+        "info": "Zero-knowledge compression protocol enabling rent-free tokens and PDAs on Solana, 291 GitHub stars, documentation at zkcompression.com with comprehensive developer resources"
+      },
+      "https://www.zkcompression.com/": {
+        "id": 7,
+        "publisher": "Light Protocol",
+        "url": "https://www.zkcompression.com/",
+        "title": "ZK Compression Framework Documentation",
+        "info": "Technical documentation for ZK Compression framework reducing Solana storage costs by 98-5000x through state compression and zero-knowledge proofs, with TypeScript/Rust SDKs"
+      },
+      "https://github.com/ventali/awesome-zk": {
+        "id": 8,
+        "publisher": "Ventali",
+        "url": "https://github.com/ventali/awesome-zk",
+        "title": "Awesome ZK: Curated list of Zero-Knowledge resources",
+        "info": "Comprehensive curated list of ZK libraries and tools including Circom, Bulletproofs, Bellman, Arkworks, Plonky2, Spartan, and projects like Light Protocol for Solana"
+      },
+      "https://solana.stackexchange.com/questions/3264/does-solana-support-any-popular-zksnark-libraries": {
+        "id": 9,
+        "publisher": "Solana Stack Exchange",
+        "url": "https://solana.stackexchange.com/questions/3264/does-solana-support-any-popular-zksnark-libraries",
+        "title": "Does Solana support any popular zkSNARK libraries?",
+        "info": "Community discussion revealing that Solana does not natively support zkSNARK libraries, requires ad-hoc implementations, mentions upcoming curve-25519 syscall for simple pairing-based zkSNARKs"
+      }
+    }
+  }
+}
