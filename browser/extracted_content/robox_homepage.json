@@ -1,0 +1,38 @@
+📄 Extracted from page: RoboX
+URL: https://robox.to/
+
+Extracted content:
+```json
+{
+  "title": "RoboX",
+  "url": "https://robox.to/",
+  "summary": "RoboX is introduced as the first open-source data platform for robotics training, transforming smartphones into a live sensor network. Users can join data collection 'missions' by sharing anonymized data from their devices, earning points redeemable for ROBOX tokens. The platform aims to provide up-to-date, real-world data to address the issue of outdated robotics datasets. It emphasizes privacy and user control through on-device data scrubbing, encryption, open audits, and user sovereignty, allowing contributors to turn their routine activities into valuable data and rewards.",
+  "key_points": [
+    "RoboX is an open-source data platform designed for robotics training.",
+    "It uses smartphones as a live sensor network, enabling users to contribute data through missions.",
+    "Users earn points for data contributions, which can be redeemed for ROBOX tokens and staked for APR.",
+    "Aims to solve the problem of outdated robotics datasets by providing current, real-time data.",
+    "Strong focus on privacy: data is anonymized on-device (faces, plates, voices scrubbed), encrypted, and subject to open audits (GDPR & DIFC DP Law 2020 compliant).",
+    "Users maintain control over their data, with options to export, delete, or opt out of campaigns.",
+    "Simple 'One-Tap Setup' for app installation and data collection.",
+    "Missions include Road-Surface Vision, Indoor Positioning, Noise Heat-Map, 3D Depth Sweep, and Pressure & Altitude.",
+    "The platform has a global presence, with mentions of 37 countries and 10,000 contributors.",
+    "Emphasizes that data contributors earn value, contrasting with traditional data extraction models."
+  ],
+  "relevant_links": [
+    "/about",
+    "https://docs.robox.to/documentation/roadmap",
+    "https://docs.robox.to/documentation/missions",
+    "https://docs.robox.to/documentation/earnings-and-rewards",
+    "/data-policy",
+    "https://docs.robox.to/documentation/developer-access",
+    "https://docs.robox.to/",
+    "/explore-missions",
+    "/waitlist",
+    "https://x.com/robox_to",
+    "https://discord.gg/roboxcommunity",
+    "https://www.linkedin.com/company/roboxtechnologies/about/?viewAsMember=true"
+  ],
+  "file_name": "robox_homepage.json"
+}
+```

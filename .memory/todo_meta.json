@@ -5,14 +5,14 @@
         "id": "1",
         "content": "Update UI/UX ZKx401 website sesuai referensi",
         "details": "1. Analisis design reference dari zkpass.org dan robox.to\n2. Update website design untuk lebih mirip referensi\n3. Implementasi full animated landing page\n4. Hapus badge 'created by minimax'\n5. Improve UI/UX dengan element modern",
-        "status": "pending",
+        "status": "completed",
         "priority": "high"
       },
       "2": {
         "id": "2",
         "content": "Deploy website ke GitHub",
         "details": "1. Setup GitHub repository dengan ZKx401 website\n2. Configure GitHub Pages atau GitHub Actions untuk deployment\n3. Upload website files ke GitHub repository\n4. Test deployment dan accessibility\n5. Provide GitHub repository URL",
-        "status": "pending",
+        "status": "completed",
         "priority": "high"
       },
       "3": {

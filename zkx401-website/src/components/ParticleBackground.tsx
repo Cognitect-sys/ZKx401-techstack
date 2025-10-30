@@ -7,6 +7,7 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
+  pulsePhase: number;
 }
 
 export default function ParticleBackground() {
@@ -14,6 +15,7 @@ export default function ParticleBackground() {
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
   const mouseRef = useRef({ x: 0, y: 0 });
+  const timeRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,29 +30,30 @@ export default function ParticleBackground() {
     };
 
     const createParticles = () => {
-      const particleCount = window.innerWidth < 768 ? 50 : 100; // Reduced for mobile
+      const particleCount = window.innerWidth < 768 ? 30 : 60; // Reduced for light theme
       particlesRef.current = [];
 
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.4 + 0.2
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.15 + 0.05,
+          pulsePhase: Math.random() * Math.PI * 2
         });
       }
     };
 
-    const updateParticle = (particle: Particle) => {
-      // Mouse attraction
+    const updateParticle = (particle: Particle, time: number) => {
+      // Mouse attraction (gentle)
       const dx = mouseRef.current.x - particle.x;
       const dy = mouseRef.current.y - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 150) {
-        const force = (150 - distance) / 150 * 0.02;
+      if (distance < 120) {
+        const force = (120 - distance) / 120 * 0.01;
         particle.vx += (dx / distance) * force;
         particle.vy += (dy / distance) * force;
       }
@@ -64,36 +67,46 @@ export default function ParticleBackground() {
       if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
       // Gentle direction changes
-      if (Math.random() < 0.002) {
-        particle.vx += (Math.random() - 0.5) * 0.1;
-        particle.vy += (Math.random() - 0.5) * 0.1;
+      if (Math.random() < 0.001) {
+        particle.vx += (Math.random() - 0.5) * 0.05;
+        particle.vy += (Math.random() - 0.5) * 0.05;
       }
 
       // Limit velocity
       const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
-      const maxSpeed = 1;
+      const maxSpeed = 0.5;
       if (speed > maxSpeed) {
         particle.vx = (particle.vx / speed) * maxSpeed;
         particle.vy = (particle.vy / speed) * maxSpeed;
       }
+
+      // Update pulse phase
+      particle.pulsePhase += 0.02;
     };
 
-    const drawParticle = (particle: Particle) => {
-      ctx.save();
-      ctx.globalAlpha = particle.opacity;
-      ctx.fillStyle = '#3b82f6';
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(59, 130, 246, 0.5)';
+    const drawParticle = (particle: Particle, time: number) => {
+      const pulseOpacity = particle.opacity * (0.5 + 0.5 * Math.sin(particle.pulsePhase + time * 0.001));
       
+      ctx.save();
+      ctx.globalAlpha = pulseOpacity;
+      
+      // Main particle
+      ctx.fillStyle = '#3b82f6';
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fill();
+      
+      // Subtle glow
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = 'rgba(59, 130, 246, 0.1)';
+      ctx.fill();
+      
       ctx.restore();
     };
 
-    const drawConnections = () => {
+    const drawConnections = (time: number) => {
       const particles = particlesRef.current;
-      const maxDistance = 120;
+      const maxDistance = 100;
 
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -102,12 +115,17 @@ export default function ParticleBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.2;
+            const opacity = (1 - distance / maxDistance) * 0.08;
             
             ctx.save();
             ctx.globalAlpha = opacity;
             ctx.strokeStyle = '#3b82f6';
             ctx.lineWidth = 0.5;
+            
+            // Animate connection opacity
+            const pulseOpacity = opacity * (0.7 + 0.3 * Math.sin(time * 0.002 + i * 0.5));
+            ctx.globalAlpha = pulseOpacity;
+            
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -119,15 +137,18 @@ export default function ParticleBackground() {
     };
 
     const animate = () => {
+      timeRef.current += 16; // ~60fps
+      const time = timeRef.current;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw connections first (background)
-      drawConnections();
+      drawConnections(time);
 
       // Update and draw particles
       particlesRef.current.forEach(particle => {
-        updateParticle(particle);
-        drawParticle(particle);
+        updateParticle(particle, time);
+        drawParticle(particle, time);
       });
 
       animationRef.current = requestAnimationFrame(animate);
@@ -162,8 +183,8 @@ export default function ParticleBackground() {
       animate();
     } else {
       // Static particles for accessibility
-      drawConnections();
-      particlesRef.current.forEach(drawParticle);
+      drawConnections(timeRef.current);
+      particlesRef.current.forEach(particle => drawParticle(particle, timeRef.current));
     }
 
     // Event listeners

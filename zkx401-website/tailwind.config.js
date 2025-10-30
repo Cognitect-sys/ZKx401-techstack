@@ -138,4 +138,156 @@ module.exports = {
 		},
 	},
 	plugins: [require('tailwindcss-animate')],
+}/** @type {import('tailwindcss').Config} */
+module.exports = {
+	darkMode: ['class'],
+	content: [
+		'./pages/**/*.{ts,tsx}',
+		'./components/**/*.{ts,tsx}',
+		'./app/**/*.{ts,tsx}',
+		'./src/**/*.{ts,tsx}',
+	],
+	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px',
+			},
+		},
+		extend: {
+			colors: {
+				// ZKx401 Light Theme Design System Colors
+				background: {
+					'pure-white': '#ffffff',
+					'near-white': '#f8fafc',
+					'light-gray': '#f1f5f9',
+					'card': '#ffffff',
+					DEFAULT: 'hsl(var(--background))',
+				},
+				text: {
+					'primary': '#0f172a',
+					'secondary': '#475569',
+					'tertiary': '#64748b'
+				},
+				accent: {
+					'primary': '#3b82f6',
+					'hover': '#2563eb',
+					'glow': 'rgba(59, 130, 246, 0.15)',
+					'secondary': '#6366f1',
+					DEFAULT: '#3b82f6',
+					foreground: 'hsl(var(--accent-foreground))',
+				},
+				semantic: {
+					'success': '#10b981',
+					'warning': '#f59e0b',
+					'error': '#ef4444'
+				},
+				border: {
+					'subtle': 'rgba(15, 23, 42, 0.08)',
+					'moderate': 'rgba(15, 23, 42, 0.15)',
+					DEFAULT: 'hsl(var(--border))',
+				},
+				overlay: {
+					'light': 'rgba(255, 255, 255, 0.8)',
+					'dark': 'rgba(0, 0, 0, 0.05)'
+				},
+				primary: {
+					DEFAULT: '#3b82f6',
+					foreground: 'hsl(var(--primary-foreground))',
+				},
+				secondary: {
+					DEFAULT: 'hsl(var(--secondary))',
+					foreground: 'hsl(var(--secondary-foreground))',
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))',
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))',
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))',
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))',
+				},
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				foreground: 'hsl(var(--foreground))',
+			},
+			fontFamily: {
+				'primary': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				'monospace': ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace']
+			},
+			fontSize: {
+				'hero-title': '56px',
+				'headline-1': '36px',
+				'headline-2': '24px',
+				'body-large': '18px',
+				'body': '16px',
+				'small': '14px',
+				'code': '14px'
+			},
+			spacing: {
+				'xs': '8px',
+				'sm': '16px',
+				'md': '24px',
+				'lg': '32px',
+				'xl': '48px',
+				'2xl': '64px',
+				'3xl': '96px',
+				'4xl': '128px'
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
+				'sm': '8px',
+				'md': '12px',
+				'lg': '16px',
+				'xl': '24px'
+			},
+			boxShadow: {
+				'glow-primary': '0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(59, 130, 246, 0.08)',
+				'glow-subtle': '0 0 12px rgba(59, 130, 246, 0.12)',
+				'card': '0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06)',
+				'card-hover': '0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.06)'
+			},
+			keyframes: {
+				'accordion-down': {
+					from: { height: 0 },
+					to: { height: 'var(--radix-accordion-content-height)' },
+				},
+				'accordion-up': {
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: 0 },
+				},
+				'glow-pulse': {
+					'0%, 100%': { opacity: '0.6' },
+					'50%': { opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'slide-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				}
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'slide-up': 'slide-up 0.6s ease-out'
+			},
+		},
+	},
+	plugins: [require('tailwindcss-animate')],
 }

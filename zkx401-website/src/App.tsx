@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background-near-black font-primary text-text-primary antialiased">
+    <div className="min-h-screen bg-background-near-white font-primary text-text-primary antialiased">
       <Navigation />
       <main>
         <HeroSection />
