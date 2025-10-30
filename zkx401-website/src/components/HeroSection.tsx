@@ -29,12 +29,12 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <p className="text-body-large text-text-secondary mb-8 leading-relaxed max-w-3xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
-          Launch Your Private Agents with ZKx401 Integration Payments
+          Deploy autonomous private agents with zero-knowledge x401
         </p>
         
         {/* Agent Description */}
         <p className="text-body-medium text-text-muted mb-12 leading-relaxed max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '0.25s'}}>
-          Deploy autonomous private agents powered by zero-knowledge cryptography with seamless ZKx401 payment integration for blockchain-native transactions.
+          Build and deploy fully autonomous agents that operate with complete privacy through advanced zero-knowledge protocols, enabling secure blockchain interactions without exposing sensitive data.
         </p>
 
         {/* CTA Buttons */}
