@@ -1,26 +1,48 @@
-import { Shield, Eye, Lock } from 'lucide-react';
+import { Shield, Eye, Lock, Layers, Database, Bot } from 'lucide-react';
 
 interface Feature {
   icon: React.ReactNode;
   title: string;
   description: string;
+  badge?: string;
 }
 
 const features: Feature[] = [
   {
+    icon: <Layers className="w-6 h-6" />,
+    title: "Composable Context Architecture",
+    description: "Modular context system inspired by Daydreams. Each context handles specific functionality and can be composed using .use() pattern for complex behaviors.",
+    badge: "Daydreams"
+  },
+  {
     icon: <Shield className="w-6 h-6" />,
-    title: "Agent Privacy Layer",
-    description: "Deploy private agents with built-in zero-knowledge privacy. Each agent operates with complete confidentiality while handling blockchain transactions."
+    title: "Persistent Memory System",
+    description: "Dual-tier memory architecture with Working Memory (session) and Context Memory (persistent). Automatically persists across sessions with TTL support.",
+    badge: "New"
+  },
+  {
+    icon: <Database className="w-6 h-6" />,
+    title: "Type-Safe Action System",
+    description: "Execute actions through a type-safe executor with Zod schema validation. Built-in schemas for privacy, payment, blockchain, and agent operations.",
+    badge: "Enhanced"
+  },
+  {
+    icon: <Bot className="w-6 h-6" />,
+    title: "Agent Deployment Context",
+    description: "Deploy autonomous agents with privacy preservation and payment integration. Support for multiple capabilities and resource management.",
+    badge: "Beta"
   },
   {
     icon: <Eye className="w-6 h-6" />,
-    title: "ZKx401 Payment Integration",
-    description: "Seamless integration with ZKx401 protocol for anonymous payments. Agents can process transactions without revealing sensitive financial data."
+    title: "Zero-Knowledge Privacy Context",
+    description: "Generate ZK proofs and store private data securely. Built-in encryption and privacy-preserving computation capabilities.",
+    badge: "Core"
   },
   {
     icon: <Lock className="w-6 h-6" />,
-    title: "Autonomous Security",
-    description: "Quantum-resistant security for autonomous operations. Your private agents remain protected against future cryptographic threats."
+    title: "Payment Context (x402 Protocol)",
+    description: "Handle USDC micropayments via x402 protocol on Solana. Support for fee estimation, transaction processing, and balance management.",
+    badge: "Production"
   }
 ];
 
@@ -44,9 +66,30 @@ export default function KeyFeaturesSection() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-background-card border border-border-subtle rounded-lg p-8 transition-all duration-250 hover:shadow-card-hover hover:-translate-y-1 group animate-slide-up"
+              className="bg-background-card border border-border-subtle rounded-lg p-8 transition-all duration-250 hover:shadow-card-hover hover:-translate-y-1 group animate-slide-up relative"
               style={{animationDelay: `${index * 0.1}s`}}
             >
+              {/* Badge */}
+              {feature.badge && (
+                <div className="absolute top-4 right-4">
+                  <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                    feature.badge === 'Daydreams' 
+                      ? 'bg-purple-100 text-purple-800'
+                      : feature.badge === 'New'
+                      ? 'bg-green-100 text-green-800'
+                      : feature.badge === 'Enhanced'
+                      ? 'bg-blue-100 text-blue-800'
+                      : feature.badge === 'Beta'
+                      ? 'bg-yellow-100 text-yellow-800'
+                      : feature.badge === 'Core'
+                      ? 'bg-red-100 text-red-800'
+                      : 'bg-gray-100 text-gray-800'
+                  }`}>
+                    {feature.badge}
+                  </span>
+                </div>
+              )}
+
               {/* Icon */}
               <div className="flex items-center justify-center w-12 h-12 bg-accent-primary/10 rounded-lg mb-6 transition-all duration-250 group-hover:shadow-glow-subtle">
                 <div className="text-accent-primary">
@@ -65,6 +108,50 @@ export default function KeyFeaturesSection() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Architecture Overview */}
+        <div className="mt-16 bg-gradient-to-br from-background-card to-background-secondary rounded-lg p-8 border border-gray-200">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-text-primary mb-4">
+              Daydreams-Powered Architecture
+            </h3>
+            <p className="text-text-secondary max-w-3xl mx-auto">
+              ZKx401 now implements the same composable context architecture that powers leading AI frameworks, 
+              adapted for blockchain and privacy-preserving applications.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 text-center">
+            <div className="p-4">
+              <div className="w-8 h-8 bg-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white text-sm font-bold">1</span>
+              </div>
+              <h4 className="font-semibold text-text-primary mb-2">Context Creation</h4>
+              <p className="text-sm text-text-secondary">Create isolated contexts with their own memory and state</p>
+            </div>
+            <div className="p-4">
+              <div className="w-8 h-8 bg-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white text-sm font-bold">2</span>
+              </div>
+              <h4 className="font-semibold text-text-primary mb-2">Composition</h4>
+              <p className="text-sm text-text-secondary">Compose contexts using .use() pattern for complex behaviors</p>
+            </div>
+            <div className="p-4">
+              <div className="w-8 h-8 bg-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white text-sm font-bold">3</span>
+              </div>
+              <h4 className="font-semibold text-text-primary mb-2">Action Execution</h4>
+              <p className="text-sm text-text-secondary">Execute type-safe actions with schema validation</p>
+            </div>
+            <div className="p-4">
+              <div className="w-8 h-8 bg-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                <span className="text-white text-sm font-bold">4</span>
+              </div>
+              <h4 className="font-semibold text-text-primary mb-2">Memory Persistence</h4>
+              <p className="text-sm text-text-secondary">Automatic memory persistence across sessions</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

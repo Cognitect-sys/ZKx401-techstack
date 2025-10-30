@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import MissionSection from './components/MissionSection';
 import KeyFeaturesSection from './components/KeyFeaturesSection';
+import DaydreamsDemo from './components/DaydreamsDemo';
 import TechnicalIntegrationSection from './components/TechnicalIntegrationSection';
 import UseCasesSection from './components/UseCasesSection';
 import CTAFooterSection from './components/CTAFooterSection';
@@ -25,6 +26,7 @@ function App() {
           <Navigation />
           <main>
             <HeroSection />
+            <DaydreamsDemo />
             <MissionSection />
             <KeyFeaturesSection />
             <TechnicalIntegrationSection />
