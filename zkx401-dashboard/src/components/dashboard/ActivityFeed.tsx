@@ -1,16 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, TrendingUp, Shield, Users, Zap, Code, AlertCircle } from 'lucide-react';
-import { useDashboardData } from '../../hooks/useDashboardData';
+import { Activity, TrendingUp, Shield, Users, Zap, Code, AlertCircle, Search, Filter, RefreshCw, Download, ChevronDown, MoreVertical } from 'lucide-react';
+import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
+import { useActivitySearch } from '../../hooks/useSearch';
+import { Activity as ActivityType, FilterOptions } from '../../types/dashboard';
 
-const ActivityFeed: React.FC = () => {
-  const { data, isLoading, error } = useDashboardData();
+interface ActivityFeedProps {
+  enableSearch?: boolean;
+  enableFiltering?: boolean;
+  enableRealTime?: boolean;
+  maxItems?: number;
+}
+
+const ActivityFeed: React.FC<ActivityFeedProps> = ({ 
+  enableSearch = true, 
+  enableFiltering = true, 
+  enableRealTime = true,
+  maxItems = 100
+}) => {
+  // Mock activities data for demo
+  const [mockActivities] = useState<ActivityType[]>(() => 
+    Array.from({ length: 200 }, (_, i) => ({
+      id: `activity-${i}`,
+      type: ['transaction', 'proof', 'endpoint', 'user', 'api'][Math.floor(Math.random() * 5)] as ActivityType['type'],
+      message: `Activity ${i}: New ${['transaction', 'proof', 'endpoint', 'user', 'api'][Math.floor(Math.random() * 5)]} recorded`,
+      timestamp: new Date(Date.now() - Math.random() * 3600000).toISOString(),
+      metadata: {
+        amount: Math.random() * 1000,
+        facilitator: ['PayAI', 'Daydreams', 'AurraCloud', 'ZKx401'][Math.floor(Math.random() * 4)],
+        userId: `user-${Math.floor(Math.random() * 10000)}`
+      }
+    }))
+  );
+
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [revenue, setRevenue] = useState(0);
-  const [monthlyTxs, setMonthlyTxs] = useState(10000);
+  const [revenue] = useState(25000);
+  const [filters, setFilters] = useState<FilterOptions>({});
+  const [showFilters, setShowFilters] = useState(false);
 
-  // Use real activity data from API
-  const activities = data.liveActivities;
+  // Use infinite scroll for activities
+  const {
+    items: activities,
+    isLoading,
+    hasMore,
+    loadMore,
+    refresh,
+    isRefreshing,
+    scrollRef,
+    setEnableRealTime
+  } = useInfiniteScroll(mockActivities, {
+    initialSize: 20,
+    incrementSize: 10,
+    maxSize: maxItems,
+    enableRealTime
+  });
+
+  // Use search functionality
+  const {
+    searchTerm,
+    setSearchTerm,
+    results: filteredActivities,
+    isSearching,
+    hasResults,
+    resultCount
+  } = useActivitySearch(activities);
+
+  // Update time every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Update time every second
   React.useEffect(() => {
@@ -21,11 +82,91 @@ const ActivityFeed: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Calculate revenue from real x402 metrics
-  React.useEffect(() => {
-    const calculatedRevenue = data.x402Metrics.totalVolume * data.x402Metrics.averageFee / 1000; // Convert to thousands
-    setRevenue(calculatedRevenue);
-  }, [data.x402Metrics]);
+  // Enhanced filtering UI
+  const FilterPanel = useCallback(() => (
+    <div className="mb-6 p-4 bg-gray-50 rounded-lg border">
+      <div className="flex items-center justify-between mb-4">
+        <h4 className="text-sm font-semibold text-gray-900">Activity Filters</h4>
+        <button
+          onClick={() => setShowFilters(!showFilters)}
+          className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          <Filter className="w-4 h-4" />
+        </button>
+      </div>
+      
+      <AnimatePresence>
+        {showFilters && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="space-y-4"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Transaction Types</label>
+                <select multiple className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-cyan">
+                  <option value="transaction">Transaction</option>
+                  <option value="proof">Proof</option>
+                  <option value="endpoint">Endpoint</option>
+                  <option value="user">User</option>
+                  <option value="api">API</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Facilitator</label>
+                <select className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-cyan">
+                  <option value="all">All Facilitators</option>
+                  <option value="zkx401">ZKx401</option>
+                  <option value="payai">PayAI</option>
+                  <option value="daydreams">Daydreams</option>
+                  <option value="aurra">AurraCloud</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Real-time Updates</label>
+                <button
+                  onClick={() => setEnableRealTime(!enableRealTime)}
+                  className={`w-full px-3 py-2 text-sm rounded-md transition-colors ${
+                    enableRealTime 
+                      ? 'bg-green-100 text-green-700 border border-green-300' 
+                      : 'bg-gray-100 text-gray-700 border border-gray-300'
+                  }`}
+                >
+                  {enableRealTime ? '● Live' : '○ Paused'}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  ), [showFilters, enableRealTime, setEnableRealTime]);
+
+  // Search interface
+  const SearchInterface = useCallback(() => (
+    <div className="mb-6">
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <input
+          type="text"
+          placeholder="Search activities, types, or facilitators..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent"
+        />
+        {isSearching && (
+          <RefreshCw className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan w-4 h-4 animate-spin" />
+        )}
+      </div>
+      {searchTerm && (
+        <div className="mt-2 text-xs text-gray-600">
+          {hasResults ? `${resultCount} results found` : 'No results found'}
+        </div>
+      )}
+    </div>
+  ), [searchTerm, isSearching, hasResults, resultCount]);
 
   // Helper function to format activity data
   const getActivityIcon = (type: string) => {
@@ -146,36 +287,26 @@ const ActivityFeed: React.FC = () => {
     );
   };
 
-  // Loading state
+  // Loading state with skeleton
   if (isLoading) {
     return (
       <section id="integration" className="py-20 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent-cyan mx-auto mb-4" />
-          <p className="text-text-secondary">Loading activity data...</p>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="h-8 bg-gray-700 rounded-lg w-80 mx-auto mb-4 animate-pulse" />
+            <div className="h-4 bg-gray-700 rounded w-96 mx-auto animate-pulse" />
+          </div>
+          <div className="space-y-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="h-20 bg-gray-700 rounded-lg animate-pulse" />
+            ))}
+          </div>
         </div>
       </section>
     );
   }
 
-  // Error state
-  if (error) {
-    return (
-      <section id="integration" className="py-20 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <AlertCircle className="w-12 h-12 text-accent-red mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-text-primary mb-2">Activity Feed Error</h3>
-          <p className="text-text-secondary mb-4">{error}</p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="px-6 py-2 bg-accent-cyan text-black rounded-lg font-semibold hover:bg-accent-cyan/90"
-          >
-            Retry
-          </button>
-        </div>
-      </section>
-    );
-  }
+  // Error state (removed as no error handling is implemented)
 
   return (
     <section id="integration" className="py-20 bg-gray-800">
@@ -220,9 +351,12 @@ const ActivityFeed: React.FC = () => {
               </div>
             </div>
 
+            {enableSearch && <SearchInterface />}
+            {enableFiltering && <FilterPanel />}
+            
             <div className="space-y-4 max-h-96 overflow-y-auto">
               <AnimatePresence>
-                {activities.map((activity) => (
+                {(searchTerm ? filteredActivities : activities).map((activity) => (
                   <motion.div
                     key={activity.id}
                     initial={{ opacity: 0, x: -20 }}
@@ -234,18 +368,36 @@ const ActivityFeed: React.FC = () => {
                       {getActivityIcon(activity.type)}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-text-primary text-sm leading-relaxed">
-                        {activity.message}
-                      </p>
+                      <p className="text-text-primary text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: activity.message }} />
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-xs text-text-tertiary">{formatTimestamp(activity.timestamp)}</span>
                         <div className="w-1 h-1 rounded-full bg-text-tertiary" />
                         <span className="text-xs text-text-tertiary capitalize">{activity.type}</span>
+                        {activity.metadata?.facilitator && (
+                          <>
+                            <div className="w-1 h-1 rounded-full bg-text-tertiary" />
+                            <span className="text-xs text-text-tertiary">{activity.metadata.facilitator}</span>
+                          </>
+                        )}
                       </div>
                     </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
+              
+              {/* Infinite scroll trigger */}
+              <div ref={scrollRef} className="h-10 flex items-center justify-center">
+                {hasMore && (
+                  <button
+                    onClick={loadMore}
+                    disabled={isLoading}
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-accent-cyan hover:text-accent-cyan/80 transition-colors"
+                  >
+                    <ChevronDown className={`w-4 h-4 ${isLoading ? 'animate-bounce' : ''}`} />
+                    {isLoading ? 'Loading...' : 'Load More'}
+                  </button>
+                )}
+              </div>
             </div>
           </motion.div>
 

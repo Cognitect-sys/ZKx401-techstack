@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Shield, Clock, Zap, Award } from 'lucide-react';
+import { Star, Shield, Clock, Zap, Award, ArrowUpDown, Download, BarChart3, TrendingUp, Filter } from 'lucide-react';
+import { FacilitatorData, SortConfig, ComparisonMode } from '../../types/dashboard';
 
-const FacilitatorComparison: React.FC = () => {
-  const facilitators = [
+interface FacilitatorComparisonProps {
+  enableSorting?: boolean;
+  enableExport?: boolean;
+  enableCompareMode?: boolean;
+}
+
+const FacilitatorComparison: React.FC<FacilitatorComparisonProps> = ({ 
+  enableSorting = true, 
+  enableExport = true, 
+  enableCompareMode = true 
+}) => {
+  const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'trustScore', direction: 'desc' });
+  const [compareMode, setCompareMode] = useState<ComparisonMode>({ enabled: false, selectedItems: [], comparisonMetrics: ['trustScore', 'transactionFee'] });
+  const [showMarketTrends, setShowMarketTrends] = useState(true);
+  const [comparisonMetrics, setComparisonMetrics] = useState<string[]>(['trustScore', 'transactionFee', 'activeWallets']);
+
+  const facilitators: FacilitatorData[] = useMemo(() => [
     {
       name: 'PayAI',
       marketCap: '$48M',
@@ -11,9 +27,11 @@ const FacilitatorComparison: React.FC = () => {
       transactionFee: '45bps',
       trustScore: 4.2,
       privacyLevel: 'Medium',
-      apiEndpoints: '12',
+      apiEndpoints: 12,
       uptime: '99.2%',
-      zkx401: false
+      zkx401: false,
+      marketCapTrend: 5.2,
+      performanceScore: 82
     },
     {
       name: 'Daydreams',
@@ -22,9 +40,11 @@ const FacilitatorComparison: React.FC = () => {
       transactionFee: '50bps',
       trustScore: 3.8,
       privacyLevel: 'Low',
-      apiEndpoints: '8',
+      apiEndpoints: 8,
       uptime: '97.8%',
-      zkx401: false
+      zkx401: false,
+      marketCapTrend: -2.1,
+      performanceScore: 68
     },
     {
       name: 'AurraCloud',
@@ -33,9 +53,11 @@ const FacilitatorComparison: React.FC = () => {
       transactionFee: '40bps',
       trustScore: 4.0,
       privacyLevel: 'Medium',
-      apiEndpoints: '15',
+      apiEndpoints: 15,
       uptime: '98.9%',
-      zkx401: false
+      zkx401: false,
+      marketCapTrend: 8.7,
+      performanceScore: 78
     },
     {
       name: 'ZKx401',
@@ -44,11 +66,44 @@ const FacilitatorComparison: React.FC = () => {
       transactionFee: '30bps',
       trustScore: 4.9,
       privacyLevel: 'High',
-      apiEndpoints: '18',
+      apiEndpoints: 18,
       uptime: '99.8%',
-      zkx401: true
+      zkx401: true,
+      marketCapTrend: 15.3,
+      performanceScore: 94
     }
-  ];
+  ], []);
+
+  const handleSort = useCallback((key: string) => {
+    setSortConfig(prev => ({
+      key,
+      direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc'
+    }));
+  }, []);
+
+  const exportData = useCallback(() => {
+    const csvData = facilitators.map(f => ({
+      Facilitator: f.name,
+      'Market Cap': f.marketCap,
+      'Active Wallets': f.activeWallets,
+      'Transaction Fee': f.transactionFee,
+      'Trust Score': f.trustScore,
+      'Privacy Level': f.privacyLevel,
+      'API Endpoints': f.apiEndpoints,
+      'Uptime': f.uptime,
+      'Market Cap Trend': f.marketCapTrend
+    }));
+    
+    const csvContent = Object.keys(csvData[0]).join(',') + '\n' + 
+      csvData.map(row => Object.values(row).join(',')).join('\n');
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'zkx401-facilitator-comparison.csv';
+    a.click();
+  }, [facilitators]);
 
   const getPrivacyBadgeColor = (level: string) => {
     switch (level) {
@@ -113,6 +168,7 @@ const FacilitatorComparison: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-purple/10 border border-accent-purple/20 text-accent-purple text-sm font-medium mb-6">
             <Award className="w-4 h-4" />
             Competitive Analysis
+            {showMarketTrends && <span className="ml-2">• Trends</span>}
           </div>
           <h2 className="text-h1 font-bold text-text-primary mb-4">
             x402 Facilitator Ecosystem
@@ -133,15 +189,39 @@ const FacilitatorComparison: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Comparison Table */}
-        <motion.div
-          className="stat-card overflow-hidden"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {/* Export & Controls */}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            {enableExport && (
+              <button
+                onClick={exportData}
+                className="flex items-center gap-2 px-4 py-2 bg-accent-cyan text-black rounded-lg hover:bg-accent-cyan/90 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Export Data
+              </button>
+            )}
+            <button
+              onClick={() => setShowMarketTrends(!showMarketTrends)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                showMarketTrends 
+                  ? 'bg-accent-purple text-white' 
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              <BarChart3 className="w-4 h-4" />
+              Market Trends
+            </button>
+          </div>
+        </div>
+
+        {/* Table Container */}
+        <div className="bg-bg-hover rounded-lg overflow-hidden border border-white/10">
           {/* Table Header */}
+          <div className="bg-bg-hover border-b border-white/10 p-6">
+            <h3 className="text-h3 font-semibold text-text-primary">Facilitator Comparison Matrix</h3>
+            <p className="text-text-secondary mt-2">Comprehensive metrics untuk competitive analysis</p>
+          </div>
           <div className="bg-bg-hover border-b border-white/10 p-6">
             <h3 className="text-h3 font-semibold text-text-primary">Facilitator Comparison Matrix</h3>
             <p className="text-text-secondary mt-2">Comprehensive metrics untuk competitive analysis</p>
@@ -152,8 +232,24 @@ const FacilitatorComparison: React.FC = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="text-left p-6 text-text-secondary font-semibold">Facilitator</th>
-                  <th className="text-right p-6 text-text-secondary font-semibold">Market Cap</th>
+                  <th className="text-left p-6 text-text-secondary font-semibold">
+                    <button
+                      onClick={() => enableSorting && handleSort('name')}
+                      className="flex items-center gap-1 hover:text-accent-purple transition-colors"
+                    >
+                      Facilitator
+                      {enableSorting && <ArrowUpDown className="w-3 h-3" />}
+                    </button>
+                  </th>
+                  <th className="text-right p-6 text-text-secondary font-semibold">
+                    <button
+                      onClick={() => enableSorting && handleSort('marketCap')}
+                      className="flex items-center gap-1 hover:text-accent-purple transition-colors ml-auto"
+                    >
+                      Market Cap
+                      {enableSorting && <ArrowUpDown className="w-3 h-3" />}
+                    </button>
+                  </th>
                   <th className="text-right p-6 text-text-secondary font-semibold">Active Wallets</th>
                   <th className="text-right p-6 text-text-secondary font-semibold">Transaction Fee</th>
                   <th className="text-center p-6 text-text-secondary font-semibold">Trust Score</th>
@@ -205,7 +301,17 @@ const FacilitatorComparison: React.FC = () => {
 
                     {/* Market Cap */}
                     <td className="text-right p-6 font-mono text-text-primary">
-                      {facilitator.marketCap}
+                      <div className="flex items-center gap-2 justify-end">
+                        {facilitator.marketCap}
+                        {showMarketTrends && facilitator.marketCapTrend && (
+                          <div className={`flex items-center gap-1 text-xs ${
+                            facilitator.marketCapTrend >= 0 ? 'text-green-500' : 'text-red-500'
+                          }`}>
+                            {facilitator.marketCapTrend >= 0 ? '↗' : '↘'}
+                            {Math.abs(facilitator.marketCapTrend).toFixed(1)}%
+                          </div>
+                        )}
+                      </div>
                     </td>
 
                     {/* Active Wallets */}
@@ -250,7 +356,7 @@ const FacilitatorComparison: React.FC = () => {
               </tbody>
             </table>
           </div>
-        </motion.div>
+        </div>
 
         {/* ZKx401 Position Badge */}
         <motion.div

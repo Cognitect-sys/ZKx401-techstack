@@ -1,11 +1,11 @@
 import React from 'react';
 import Navigation from './components/ui/Navigation';
 import HeroSection from './components/dashboard/HeroSection';
-import NetworkMonitor from './components/dashboard/NetworkMonitor';
+import SimpleNetworkMonitor from './components/dashboard/SimpleNetworkMonitor';
 import FacilitatorComparison from './components/dashboard/FacilitatorComparison';
 import CompetitiveAdvantages from './components/dashboard/CompetitiveAdvantages';
 import PaymentRouting from './components/dashboard/PaymentRouting';
-import ActivityFeed from './components/dashboard/ActivityFeed';
+import UseCasesSection from './components/dashboard/UseCasesSection';
 import Footer from './components/ui/Footer';
 
 function App() {
@@ -15,11 +15,11 @@ function App() {
       
       <main>
         <HeroSection />
-        <NetworkMonitor />
+        <SimpleNetworkMonitor />
         <FacilitatorComparison />
         <CompetitiveAdvantages />
         <PaymentRouting />
-        <ActivityFeed />
+        <UseCasesSection />
       </main>
       
       <Footer />

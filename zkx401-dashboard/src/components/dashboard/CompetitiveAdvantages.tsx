@@ -8,28 +8,24 @@ const CompetitiveAdvantages: React.FC = () => {
       title: 'Zero-Knowledge Privacy',
       description: 'Advanced ZK proofs обеспечивают complete transaction privacy tanpa compromising functionality. Unlike transparent competitors, ZKx401 protects user data.',
       icon: <Shield className="w-8 h-8" />,
-      image: '/images/blockchain_privacy_security_icon_blue.png',
       gradient: 'from-accent-cyan to-blue-500'
     },
     {
       title: '30 Basis Points Routing',
       description: 'Competitive routing fee yang significantly lower dari competitors. PayAI (45bps), Daydreams (50bps), AurraCloud (40bps) vs ZKx401 (30bps).',
       icon: <DollarSign className="w-8 h-8" />,
-      image: '/images/secure_payment_confidential_transaction_icon.jpg',
       gradient: 'from-accent-green to-emerald-500'
     },
     {
       title: 'Trust Layer Integration',
       description: 'Built-in trust verification system dengan fraud prevention dan reputation scoring untuk enhanced security dan reliability.',
       icon: <Network className="w-8 h-8" />,
-      image: '/images/api_access_network_endpoint_cloud_icon.jpg',
       gradient: 'from-accent-purple to-violet-500'
     },
     {
       title: 'Discovery Network',
       description: 'Advanced network discovery dan routing optimization untuk improved transaction throughput dan reduced latency.',
       icon: <Zap className="w-8 h-8" />,
-      image: '/images/abstract_zero_knowledge_proof_cryptography_icon_blue.jpg',
       gradient: 'from-accent-cyan to-cyan-400'
     },
     {
@@ -105,16 +101,16 @@ const CompetitiveAdvantages: React.FC = () => {
                   {advantage.description}
                 </p>
 
-                {/* Feature Image */}
-                {advantage.image && (
-                  <div className="mt-6 rounded-lg overflow-hidden">
-                    <img
-                      src={advantage.image}
-                      alt={advantage.title}
-                      className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                {/* Visual Element - Geometric Pattern */}
+                <div className="mt-6 relative">
+                  <div className={`w-20 h-20 mx-auto rounded-lg bg-gradient-to-br ${advantage.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}>
+                    <div className="absolute inset-2 rounded-md bg-gradient-to-br from-white/10 to-white/5">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div className="w-3 h-3 rounded-full bg-current opacity-60"></div>
+                      </div>
+                    </div>
                   </div>
-                )}
+                </div>
 
                 {/* Hover Indicator */}
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
