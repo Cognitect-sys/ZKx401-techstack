@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZKx401 - Privacy-Enhanced x402 Protocol for Solana</title>
+    <meta name="description" content="ZKx401 enables anonymous and private payments on Solana blockchain through zero-knowledge proofs. Built for privacy-focused developers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">ZKx401</span>
+            </div>
+            <div class="nav-links">
+                <a href="#docs" class="nav-link">Docs</a>
+                <a href="https://github.com/payai/zkx401" class="nav-link">GitHub</a>
+                <a href="https://www.npmjs.com/package/@payai/x402-solana" class="nav-link">NPM</a>
+            </div>
+            <div class="nav-cta">
+                <a href="#get-started" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <div class="logo-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <defs>
+                                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6"/>
+                                    <stop offset="100%" style="stop-color:#60a5fa"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M32 8L12 20v16l20 12 20-12V20L32 8z" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
+                            <path d="M32 20l16 8v8l-16 8-16-8v-8l16-8z" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="hero-title">ZKx401</h1>
+                <p class="hero-subtitle">Privacy-Enhanced x402 Protocol for Solana</p>
+                <div class="hero-ctas">
+                    <a href="#quick-start" class="btn btn-primary btn-large">Get Started</a>
+                    <a href="#documentation" class="btn btn-secondary btn-large">View Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-visual">
+                    <div class="visual-element">
+                        <div class="blockchain-network">
+                            <div class="node node-1"></div>
+                            <div class="node node-2"></div>
+                            <div class="node node-3"></div>
+                            <div class="node node-4"></div>
+                            <div class="connection connection-1"></div>
+                            <div class="connection connection-2"></div>
+                            <div class="connection connection-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-content">
+                    <h2 class="section-title">Our Mission</h2>
+                    <p class="mission-description">
+                        Enable anonymous and private payments on Solana blockchain through advanced zero-knowledge proofs. 
+                        ZKx401 provides the foundation for privacy-focused applications while maintaining the speed and 
+                        scalability that Solana is known for.
+                    </p>
+                    <div class="mission-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <span>Zero-trust privacy model</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <span>Lightning-fast transactions</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <span>Quantum-resistant security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title section-title-center">Privacy-First Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/zero_knowledge_proof_cryptography_blue_icon.png" alt="Zero-Knowledge Proofs" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">Zero-Knowledge Proofs</h3>
+                    <p class="feature-description">
+                        Advanced cryptographic proofs that verify transactions without revealing sensitive information. 
+                        Maintain privacy while ensuring compliance and security.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/anonymous_transaction_privacy_shield_lock_icon.png" alt="Anonymous Transactions" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">Anonymous Transactions</h3>
+                    <p class="feature-description">
+                        Hide sender, receiver, and transaction amounts while maintaining blockchain integrity. 
+                        True privacy for financial interactions.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/privacy_first_blockchain_security_icon.png" alt="Privacy-First Design" class="feature-img">
+                    </div>
+                    <h3 class="feature-title">Privacy-First Design</h3>
+                    <p class="feature-description">
+                        Built from the ground up with privacy as the core principle. Every component designed 
+                        to protect user data and transaction privacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Integration Section -->
+    <section class="technical" id="quick-start">
+        <div class="container">
+            <h2 class="section-title section-title-center">Quick Start</h2>
+            <div class="technical-content">
+                <p class="technical-intro">
+                    Get started with ZKx401 in minutes. Our npm package provides everything you need to implement 
+                    privacy-enhanced transactions on Solana.
+                </p>
+                <div class="code-blocks">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Installation</span>
+                            <button class="copy-btn" data-copy="install">Copy</button>
+                        </div>
+                        <pre><code id="install">npm install @payai/x402-solana</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Basic Usage</span>
+                            <button class="copy-btn" data-copy="usage">Copy</button>
+                        </div>
+                        <pre><code id="usage">import { ZKx401 } from '@payai/x402-solana';
+
+const zkx401 = new ZKx401({
+  network: 'mainnet-beta',
+  privacyLevel: 'high'
+});
+
+// Create anonymous transaction
+const tx = await zkx401.createAnonymousTransaction({
+  amount: 1000000, // 1 SOL
+  recipient: 'recipientAddress',
+  private: true
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <h2 class="section-title section-title-center">Built For</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <div class="use-case-icon">
+                        <img src="images/zero_knowledge_proof_cryptography_icon_blue.jpg" alt="Private AI Services" class="use-case-img">
+                    </div>
+                    <h3 class="use-case-title">Private AI Services</h3>
+                    <p class="use-case-description">
+                        Secure AI model access without revealing queries or data sources
+                    </p>
+                </div>
+                <div class="use-case-item">
+                    <div class="use-case-icon">
+                        <img src="images/api_access_network_endpoint_cloud_icon.jpg" alt="Anonymous API Access" class="use-case-img">
+                    </div>
+                    <h3 class="use-case-title">Anonymous API Access</h3>
+                    <p class="use-case-description">
+                        API services with complete user privacy and transaction obfuscation
+                    </p>
+                </div>
+                <div class="use-case-item">
+                    <div class="use-case-icon">
+                        <img src="images/DeFi_decentralized_finance_blockchain_icon_blue_futuristic.jpg" alt="Privacy-Focused DeFi" class="use-case-img">
+                    </div>
+                    <h3 class="use-case-title">Privacy-Focused DeFi</h3>
+                    <p class="use-case-description">
+                        Decentralized finance protocols with built-in transaction privacy
+                    </p>
+                </div>
+                <div class="use-case-item">
+                    <div class="use-case-icon">
+                        <img src="images/secure_confidential_payment_transaction_icon.png" alt="Confidential Payments" class="use-case-img">
+                    </div>
+                    <h3 class="use-case-title">Confidential Payments</h3>
+                    <p class="use-case-description">
+                        Business transactions with complete financial privacy protection
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer Section -->
+    <section class="cta-footer" id="get-started">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Build Private Applications?</h2>
+                <p class="cta-description">
+                    Join the privacy revolution. Start building confidential applications on Solana with ZKx401.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Install Package</a>
+                    <a href="#" class="btn btn-secondary btn-large">Documentation</a>
+                    <a href="#" class="btn btn-secondary btn-large">GitHub Repository</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">ZKx401</span>
+                    <p class="footer-tagline">Privacy-Enhanced x402 Protocol</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <a href="#" class="footer-link">Documentation</a>
+                        <a href="#" class="footer-link">API Reference</a>
+                        <a href="#" class="footer-link">Examples</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Community</h4>
+                        <a href="#" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">Discord</a>
+                        <a href="#" class="footer-link">Twitter</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Support</h4>
+                        <a href="#" class="footer-link">Help Center</a>
+                        <a href="#" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 ZKx401. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/particle-animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
