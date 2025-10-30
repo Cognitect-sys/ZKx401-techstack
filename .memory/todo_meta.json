@@ -3,38 +3,38 @@
     "Coordinator": {
       "1": {
         "id": "1",
-        "content": "Riset teknologi Zero-Knowledge untuk Solana",
-        "details": "1. Penelitianzk-SNARKs vs zk-STARKs untuk Solana\n2. Analisis library seperti circom, snarkjs, atau@zk-kit\n3. Evaluasi privacy features yang bisa ditambahkan ke x402\n4. Tentukan approach untuk private payments",
-        "status": "completed",
+        "content": "Update UI/UX ZKx401 website sesuai referensi",
+        "details": "1. Analisis design reference dari zkpass.org dan robox.to\n2. Update website design untuk lebih mirip referensi\n3. Implementasi full animated landing page\n4. Hapus badge 'created by minimax'\n5. Improve UI/UX dengan element modern",
+        "status": "pending",
         "priority": "high"
       },
       "2": {
         "id": "2",
+        "content": "Deploy website ke GitHub",
+        "details": "1. Setup GitHub repository dengan ZKx401 website\n2. Configure GitHub Pages atau GitHub Actions untuk deployment\n3. Upload website files ke GitHub repository\n4. Test deployment dan accessibility\n5. Provide GitHub repository URL",
+        "status": "pending",
+        "priority": "high"
+      },
+      "3": {
+        "id": "3",
+        "content": "Riset teknologi Zero-Knowledge untuk Solana",
+        "details": "1. Penelitian zk-SNARKs vs zk-STARKs untuk Solana\n2. Analisis library seperti circom, snarkjs, atau @zk-kit\n3. Evaluasi privacy features yang bisa ditambahkan ke x402\n4. Tentukan approach untuk private payments",
+        "status": "completed",
+        "priority": "high"
+      },
+      "4": {
+        "id": "4",
         "content": "Build profesional ZKx401 website",
         "details": "✅ COMPLETED: Website berhasil dibangun dengan design Dark Mode First\n✅ Animated particle background (80-120 particles)\n✅ All content in English language\n✅ Remove ALL development artifacts termasuk 'created with minimax' badge\n✅ Professional UI/UX dengan cyber blue accents\n✅ Responsive design dengan smooth animations\n✅ ZKx401 content dengan npm package @payai/x402-solana\n✅ Live website: https://pxk9n172pmq4.space.minimax.io",
         "status": "completed",
         "priority": "high"
       },
-      "3": {
-        "id": "3",
-        "content": "Implementasi core ZKx401 library",
-        "details": "1. Clone dan modify x402-solana codebase\n2. Implement ZK proof generation untuk payments\n3. Modify payment verification untuk support private payments\n4. Add anonymous transaction support\n5. Maintain backward compatibility dengan x402",
-        "status": "in_progress",
-        "priority": "high"
-      },
-      "4": {
-        "id": "4",
-        "content": "Build example applications dengan UI modern",
-        "details": "1. Create private payment server example\n2. Build privacy-focused client example dengan animated background\n3. Demo anonymous API access\n4. Showcase private transaction verification\n5. Implement UI components: navigation, hero section, features\n6. Add animated elements seperti zkpass.org (wire animations, particle effects)\n7. Responsive design dengan modern typography\n8. Dark/light theme support",
-        "status": "pending",
-        "priority": "medium"
-      },
       "5": {
         "id": "5",
-        "content": "Testing dan documentation",
-        "details": "1. Unit tests untuk ZK functionality\n2. Integration tests dengan Solana\n3. End-to-end testing dengan example apps\n4. Create comprehensive documentation\n5. Migration guide dari x402 ke ZKx401\n6. UI/UX testing dan responsiveness checks",
+        "content": "Implementasi core ZKx401 library",
+        "details": "1. Clone dan modify x402-solana codebase\n2. Implement ZK proof generation untuk payments\n3. Modify payment verification untuk support private payments\n4. Add anonymous transaction support\n5. Maintain backward compatibility dengan x402",
         "status": "pending",
-        "priority": "medium"
+        "priority": "high"
       }
     }
   }
