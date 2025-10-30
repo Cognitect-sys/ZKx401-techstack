@@ -1,17 +1,18 @@
-# Design Specification - ZKx401 Website
+# Design Specification - ZKx401 x402 Facilitator Dashboard
 
 ## 1. Direction & Rationale
 
-**Style:** Dark Mode First - Professional blockchain aesthetic dengan animated particle backgrounds
+**Style:** Dark Mode First + Dashboard-Optimized - Professional data-driven interface untuk real-time monitoring
 
-**Visual Essence:** Dark-dominant design dengan cyber blue accents untuk privacy-focused Solana protocol. Pure black backgrounds (#000000) menciptakan immersive experience, vibrant blue accents (#3b82f6) memberikan trust signals untuk blockchain/crypto branding. Animated wire dan particle effects pada dark canvas menghadirkan dynamic technical sophistication yang sesuai dengan zero-knowledge proof technology positioning.
+**Visual Essence:** Dark-dominant dashboard dengan multi-neon accent system untuk real-time data visualization. Pure black backgrounds (#0a0a0a) menciptakan professional monitoring environment, neon accents (cyan #00d4ff untuk x402 branding, green #00ff88 untuk success/active states, purple #8b5cf6 untuk premium features) memberikan clear visual hierarchy untuk different data types. Clean card-based modular layout dengan subtle border glows instead of heavy shadows. Focus pada readability, real-time updates, dan competitive data presentation.
 
 **Real-World Examples:**
-- zkpass.org - Animated particle backgrounds dengan dark theme
-- phantom.app - Solana wallet dengan modern dark interface
-- uniswap.org - DeFi protocol dengan professional crypto branding
+- **vercel.com/dashboard** - Clean data-driven interface dengan dark theme dan real-time deployment metrics
+- **railway.app** - Professional monitoring dashboard dengan status indicators
+- **dune.com** - Blockchain data visualization dengan dark backgrounds dan vibrant chart colors
+- **linear.app** (dark mode) - Status indicators dan clean task tracking interface
 
-**Target Audience:** Solana developers (20-40) yang tech-savvy, familiar dengan blockchain concepts, prefer dark mode interfaces untuk low-light development environments.
+**Target Audience:** Solana developers, blockchain entrepreneurs, x402 ecosystem participants (20-40) yang membutuhkan real-time monitoring untuk facilitator performance, competitive analysis, dan transaction tracking. Tech-savvy professionals familiar dengan dashboard interfaces dan blockchain metrics.
 
 ---
 
@@ -21,455 +22,470 @@
 
 **Background Hierarchy (90% Dark Surfaces):**
 
-| Token Name | Hex Value | Usage | Notes |
-|------------|-----------|-------|-------|
-| bg-pure-black | #000000 | Hero section, OLED-optimized base | Pure black untuk animated background canvas |
-| bg-near-black | #0a0a0a | Main page background | Primary background layer |
-| bg-elevated | #141414 | Cards, feature boxes | Level 1 surface elevation |
-| bg-hover | #1e1e1e | Hover states, active elements | Level 2 surface elevation |
+| Token Name | Hex Value | Usage | Contrast Notes |
+|------------|-----------|-------|----------------|
+| bg-pure-black | #000000 | Hero gradient start, OLED optimization | Pure black base |
+| bg-near-black | #0a0a0a | Main page background | Primary layer |
+| bg-elevated | #141414 | Cards, data panels | Level 1 elevation |
+| bg-hover | #1e1e1e | Hover states, active cards | Level 2 elevation |
+| bg-modal | #1a1a1a | Modals, overlays | Slightly elevated from base |
 
-**Text Colors:**
+**Text Colors (High Contrast for Readability):**
 
 | Token Name | Hex Value | Usage | Contrast Ratio |
 |------------|-----------|-------|----------------|
-| text-primary | #e4e4e7 | Headlines, primary content | 15.2:1 (AAA) |
-| text-secondary | #a1a1aa | Descriptions, secondary text | 8.9:1 (AAA) |
-| text-tertiary | #71717a | Captions, labels | 4.6:1 (AA) |
+| text-primary | #e4e4e7 | Headlines, primary content | 15.2:1 (AAA) on #0a0a0a |
+| text-secondary | #a1a1aa | Descriptions, labels | 8.9:1 (AAA) |
+| text-tertiary | #71717a | Captions, timestamps | 4.6:1 (AA) |
+| text-muted | #52525b | Inactive states | 3.2:1 (minimum) |
 
-**Accent Colors (10% Vibrant Highlights):**
+**Neon Accent System (10% Vibrant, Status-Driven):**
 
-| Token Name | Hex Value | Usage | Contrast Ratio |
-|------------|-----------|-------|----------------|
-| accent-primary | #3b82f6 | Primary CTAs, links, active states | 8.6:1 (AAA) |
-| accent-hover | #60a5fa | Button hover states | 10.8:1 (AAA) |
-| accent-glow | rgba(59, 130, 246, 0.5) | Glow effects, particle animation | N/A |
-| accent-secondary | #a855f7 | Secondary accents (optional purple) | 7.2:1 (AAA) |
+| Token Name | Hex Value | Usage | Purpose |
+|------------|-----------|-------|---------|
+| accent-cyan | #00d4ff | x402 branding, info states, network stats | Primary brand color |
+| accent-cyan-glow | rgba(0, 212, 255, 0.4) | Border glows, hover effects | Subtle emphasis |
+| accent-green | #00ff88 | Success states, positive metrics, active indicators | Growth/positive |
+| accent-green-glow | rgba(0, 255, 136, 0.3) | Active status glows | Success emphasis |
+| accent-purple | #8b5cf6 | Premium features, ZKx401 highlights | Differentiation |
+| accent-purple-glow | rgba(139, 92, 246, 0.3) | Premium card borders | Exclusivity |
+| accent-orange | #ff8800 | Warning states, moderate alerts | Attention |
+| accent-red | #ff4444 | Error states, negative metrics | Critical alerts |
 
-**Semantic Colors:**
+**Semantic Status Colors:**
 
 | Token Name | Hex Value | Usage |
 |------------|-----------|-------|
-| success | #22c55e | Success states, confirmations |
-| warning | #f59e0b | Warning messages |
-| error | #ef4444 | Error states |
+| status-success | #00ff88 | Operational, completed, high uptime |
+| status-warning | #ff8800 | Degraded, moderate issues |
+| status-error | #ff4444 | Down, failed, critical |
+| status-info | #00d4ff | Informational, neutral updates |
+| status-live | #00ff88 | Real-time indicators, pulsing dots |
 
-**Borders & Overlays:**
+**Chart/Data Visualization Colors:**
 
-| Token Name | Value | Usage |
-|------------|-------|-------|
-| border-subtle | rgba(255, 255, 255, 0.1) | Card borders, dividers |
-| border-moderate | rgba(255, 255, 255, 0.15) | Hover borders |
-| overlay-dark | rgba(0, 0, 0, 0.3) | Optional image overlays |
-
-**WCAG Validation (Key Pairings):**
-- text-primary (#e4e4e7) on bg-near-black (#0a0a0a): **15.2:1** ✅ AAA
-- accent-primary (#3b82f6) on bg-near-black (#0a0a0a): **8.6:1** ✅ AAA
-- text-secondary (#a1a1aa) on bg-elevated (#141414): **8.2:1** ✅ AAA
+| Token Name | Hex Value | Usage |
+|------------|-----------|-------|
+| chart-primary | #00d4ff | Primary data series (transactions) |
+| chart-secondary | #8b5cf6 | Secondary series (volume) |
+| chart-tertiary | #00ff88 | Tertiary series (success rate) |
+| chart-gradient-start | #00d4ff | Chart gradient fills (top) |
+| chart-gradient-end | rgba(0, 212, 255, 0.1) | Chart gradient fills (bottom) |
 
 ### 2.2 Typography
 
 **Font Families:**
 
-| Role | Font Stack | Weight | Usage |
-|------|------------|--------|-------|
-| Primary | 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif | 400, 600, 700 | Body text, headlines |
-| Monospace | 'JetBrains Mono', 'Fira Code', 'Courier New', monospace | 400, 500 | Code blocks, technical references |
+| Token Name | Value | Usage |
+|------------|-------|-------|
+| font-primary | 'Inter', -apple-system, BlinkMacSystemFont, sans-serif | Body text, UI labels |
+| font-display | 'Inter', sans-serif | Headlines, section titles |
+| font-mono | 'JetBrains Mono', 'Fira Code', Consolas, monospace | Code snippets, data values, wallet addresses |
 
 **Type Scale (Desktop):**
 
-| Level | Size | Weight | Line Height | Letter Spacing | Usage |
-|-------|------|--------|-------------|----------------|-------|
-| hero-title | 56px | 700 | 1.1 | -0.02em | Hero headline |
-| headline-1 | 36px | 600 | 1.2 | -0.01em | Section headers |
-| headline-2 | 24px | 600 | 1.3 | 0 | Card titles |
-| body-large | 18px | 400 | 1.6 | 0 | Intro paragraphs |
-| body | 16px | 400 | 1.5 | 0 | Standard text |
-| small | 14px | 400 | 1.5 | 0.01em | Captions, labels |
-| code | 14px | 400 | 1.4 | 0 | Code snippets |
+| Token Name | Size | Weight | Line Height | Letter Spacing | Usage |
+|------------|------|--------|-------------|----------------|-------|
+| text-hero | 48px | 700 Bold | 1.1 | -0.02em | Hero headline |
+| text-h1 | 36px | 600 Semibold | 1.2 | -0.01em | Section headlines |
+| text-h2 | 24px | 600 Semibold | 1.3 | 0 | Card titles, subsections |
+| text-h3 | 20px | 600 Semibold | 1.3 | 0 | Component headers |
+| text-body-lg | 18px | 400 Regular | 1.6 | 0 | Large body text |
+| text-body | 16px | 400 Regular | 1.5 | 0 | Standard body text |
+| text-small | 14px | 400 Regular | 1.5 | 0.01em | Labels, captions |
+| text-xs | 12px | 500 Medium | 1.4 | 0.02em | Timestamps, badges |
+| text-stat-lg | 32px | 700 Bold | 1.1 | -0.01em | Large stat values |
+| text-stat | 24px | 600 Semibold | 1.2 | 0 | Standard stat values |
+| text-mono | 14px | 400 Regular | 1.4 | 0 | Code, addresses, hashes |
 
-**Responsive Type Scale (Mobile <768px):**
+**Responsive Type Scale (Mobile ≤640px):**
 
-| Level | Size (Mobile) |
-|-------|---------------|
-| hero-title | 36px |
-| headline-1 | 28px |
-| headline-2 | 20px |
-| body | 16px (unchanged) |
+| Element | Mobile Size | Desktop Size |
+|---------|-------------|--------------|
+| Hero | 32px | 48px |
+| H1 | 28px | 36px |
+| H2 | 20px | 24px |
+| Body | 16px | 16px (maintain) |
+| Stat Large | 24px | 32px |
 
 **Typography Best Practices:**
-- Anti-aliasing: `-webkit-font-smoothing: antialiased` untuk smooth rendering pada dark backgrounds
-- Avoid pure white text (#fff) - use text-primary (#e4e4e7) to reduce halation
-- Lighter weights (400-500) pada dark backgrounds untuk mencegah glow effect
+- Reduce font weight pada dark backgrounds (400-500) untuk avoid halation
+- Use #e4e4e7 instead of pure white untuk text (reduce eye strain)
+- Monospace untuk data values, wallet addresses, transaction hashes
+- Apply antialiasing: `-webkit-font-smoothing: antialiased`
 
-### 2.3 Spacing (8-Point Grid)
+### 2.3 Spacing Scale (4pt Grid, 8pt Preferred)
 
 | Token Name | Value | Usage |
 |------------|-------|-------|
-| space-xs | 8px | Icon padding, inline gaps |
-| space-sm | 16px | Element gaps, tight spacing |
-| space-md | 24px | Card padding (compact) |
-| space-lg | 32px | Card padding (standard) |
-| space-xl | 48px | Section margins |
-| space-2xl | 64px | Large section spacing |
-| space-3xl | 96px | Hero section padding |
-| space-4xl | 128px | Extra-large spacing |
+| space-1 | 4px | Icon padding, tight gaps |
+| space-2 | 8px | Inline spacing, small gaps |
+| space-3 | 12px | Button padding vertical |
+| space-4 | 16px | Element gaps, card inner spacing |
+| space-5 | 20px | Medium gaps |
+| space-6 | 24px | Card padding (compact) |
+| space-8 | 32px | Card padding (standard), large gaps |
+| space-10 | 40px | Section padding (internal) |
+| space-12 | 48px | Section margins between |
+| space-16 | 64px | Large section spacing |
+| space-20 | 80px | Extra large spacing |
+| space-24 | 96px | Hero padding vertical |
+| space-32 | 128px | Maximum spacing |
 
-**Generous Spacing untuk Dark Mode:**
-- Section padding: 64-96px (dark backgrounds allow more whitespace)
-- Card margins: 24-32px between cards
-- Hero padding: 96-128px vertical
+**Dashboard-Specific Spacing:**
+- Stat card padding: 24-32px
+- Dashboard grid gaps: 16-24px
+- Section spacing: 64-96px
+- Hero padding: 80-120px vertical
 
 ### 2.4 Border Radius
 
 | Token Name | Value | Usage |
 |------------|-------|-------|
-| radius-sm | 8px | Small elements, buttons |
-| radius-md | 12px | Standard buttons, inputs |
-| radius-lg | 16px | Cards, modals |
-| radius-xl | 24px | Large hero elements |
+| radius-sm | 8px | Small elements, badges |
+| radius-md | 12px | Buttons, inputs |
+| radius-lg | 16px | Cards, panels |
+| radius-xl | 20px | Large cards, modals |
+| radius-full | 9999px | Pills, status dots |
 
-**Technical Feel:** Moderate radius (8-16px) untuk precise, technical aesthetic
+**Rule:** Outer containers ≥ Inner elements + 4px
 
-### 2.5 Glow Effects (Dark Mode Shadows)
+### 2.5 Box Shadows & Glows
+
+**Elevation (Subtle, Dark Mode Optimized):**
 
 | Token Name | Value | Usage |
 |------------|-------|-------|
-| glow-primary | 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3) | Primary button hover |
-| glow-subtle | 0 0 12px rgba(59, 130, 246, 0.4) | Interactive icons |
-| shadow-card | 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.5) | Card elevation |
+| shadow-sm | 0 0 0 1px rgba(255,255,255,0.05), 0 1px 2px rgba(0,0,0,0.8) | Small elements |
+| shadow-card | 0 0 0 1px rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.6) | Standard cards |
+| shadow-card-hover | 0 0 0 1px rgba(255,255,255,0.15), 0 8px 24px rgba(0,0,0,0.7) | Card hover |
+| shadow-modal | 0 0 0 1px rgba(255,255,255,0.15), 0 20px 60px rgba(0,0,0,0.9) | Modals, overlays |
 
-**Note:** Dark mode menggunakan glow effects (light emission) instead of drop shadows
+**Neon Glows (Status Indicators):**
 
-### 2.6 Animation Timing
+| Token Name | Value | Usage |
+|------------|-------|-------|
+| glow-cyan | 0 0 12px rgba(0,212,255,0.4), 0 0 24px rgba(0,212,255,0.2) | Cyan accent glow |
+| glow-green | 0 0 12px rgba(0,255,136,0.4), 0 0 24px rgba(0,255,136,0.2) | Success/active glow |
+| glow-purple | 0 0 12px rgba(139,92,246,0.3), 0 0 24px rgba(139,92,246,0.15) | Premium glow |
+| glow-pulse | 0 0 8px rgba(0,255,136,0.6) | Pulsing live indicator |
 
-| Token Name | Value | Easing | Usage |
-|------------|-------|--------|-------|
-| duration-fast | 150ms | ease-out | Button hover, icon changes |
-| duration-base | 250ms | ease-out | Card elevation, transitions |
-| duration-slow | 400ms | ease-out | Modals, slide panels |
-| duration-particle | 3000ms | linear | Particle animation loop |
+### 2.6 Animation & Motion
+
+**Durations:**
+
+| Token Name | Value | Usage |
+|------------|-------|-------|
+| duration-fast | 150ms | Icon changes, simple hovers |
+| duration-base | 250ms | Card elevations, color transitions |
+| duration-slow | 400ms | Modals, complex transitions |
+| duration-pulse | 2000ms | Live status pulse animation |
+| duration-counter | 1000ms | Number counter increments |
+
+**Easing:**
+
+| Token Name | Value | Usage |
+|------------|-------|-------|
+| ease-out | ease-out | Default (90% cases) |
+| ease-sharp | cubic-bezier(0.4, 0.0, 0.2, 1) | Snappy interactions |
+| ease-smooth | cubic-bezier(0.4, 0.0, 0.6, 1) | Smooth, elegant |
 
 ---
 
 ## 3. Component Specifications
 
-### 3.1 Hero Section with Animated Background
+### 3.1 Hero Dashboard Section
 
 **Structure:**
+- Full-width container, 500-600px height (desktop), 400px (mobile)
+- Dark gradient background: #000000 → #0a0a0a (vertical)
+- Centered content (max-width 1200px)
+- Headline + tagline + live stats bar + CTA buttons
+
+**Layout:**
 ```
-Hero Container (Full viewport)
-├── Animated Background Layer (absolute, z-index 0)
-│   ├── Canvas element (100% width/height)
-│   └── Particle/wire animation system
-├── Dark Overlay Layer (optional, rgba(0,0,0,0.2))
-└── Content Container (relative, z-index 1)
-    ├── Logo (64px height)
-    ├── Hero Title (56px, centered)
-    ├── Subtitle (18px, text-secondary)
-    └── CTA Group (2 buttons, 16px gap)
+Hero Container (500-600px height)
+  ├── Headline (48px, bold, zinc-200)
+  ├── Tagline (18px, zinc-400, max-width 600px)
+  ├── Live Stats Bar (4 stat cards, horizontal)
+  │   └── Each card: Value + label + change indicator
+  └── CTA Button Group (2 buttons, gap 16px)
 ```
 
-**Tokens:**
-- Background: bg-pure-black (#000000)
-- Overlay: rgba(0, 0, 0, 0.2) optional untuk contrast
-- Height: 100vh (full viewport)
-- Padding: space-3xl (96px) vertical, space-lg (32px) horizontal
-- Content max-width: 800px, centered
+**Stats Bar Specification:**
+- 4 cards in horizontal row (1 row on mobile with horizontal scroll)
+- Each card: 160-200px width, 96px height
+- Background: #141414, border: 1px solid rgba(0,212,255,0.2)
+- Padding: 20px
+- Stat value: 24-32px, bold, cyan #00d4ff
+- Stat label: 12px, zinc-400
+- Change indicator: Green/red badge (+12.5%, -3.2%)
 
-**Animated Background Specifications:**
-- **Canvas:** Full viewport, pure black background
-- **Particles:** 80-120 particles, color: accent-primary (#3b82f6) dengan opacity 0.3-0.6
-- **Wire connections:** Draw lines between particles within 120px distance, stroke: rgba(59, 130, 246, 0.2)
-- **Animation:** Particles move slowly (0.2-0.5px per frame), gentle floating motion
-- **Mouse interaction:** Particles respond to cursor position (subtle attraction within 150px radius)
-- **Performance:** RequestAnimationFrame, transform-only animations
+**Interactive States:**
+- Card hover: Background #1e1e1e, border cyan glow
+- Value counter: Smooth increment animation (1000ms)
 
-**States:**
-- Default: Particles animate continuously
-- Hover (on CTAs): Nearby particles slightly brighten
-- Reduced motion: Static particle background (no animation)
+### 3.2 Data Stat Card
 
-**Note:** Inspired by zkpass.org wire animations - technical, sophisticated, non-distracting
+**Variants:**
+1. **Small Stat Card** (network stats grid)
+2. **Large Stat Card** (USDC price tracker)
+3. **Live Indicator Card** (real-time pulsing dot)
 
----
+**Small Stat Card Structure:**
+```
+Card Container (background #141414, padding 24px, radius 16px)
+  ├── Icon (24px, cyan/green/purple accent)
+  ├── Label (14px, zinc-400)
+  ├── Value (24px, bold, zinc-200, monospace for numbers)
+  ├── Change Badge (+12.5%, green if positive, red if negative)
+  └── Live Indicator (optional pulsing dot, 8px, green)
+```
 
-### 3.2 Button Components
+**Dimensions:**
+- Min-width: 200px
+- Height: 120-140px
+- Border: 1px solid rgba(255,255,255,0.1)
+- Hover: Border glow (accent color), background #1e1e1e
 
-**Primary Button (Accent Fill with Glow):**
+**Large Stat Card (USDC Price):**
+- Width: 100% or 2x grid span
+- Height: 200-240px
+- Include sparkline chart below value (60px height)
+- Chart color: Cyan gradient fill
+
+**Live Indicator (Pulsing Animation):**
+```css
+Dot: 8px circle, background #00ff88
+Animation: Pulse scale 1.0 → 1.3 → 1.0 (2000ms infinite)
+Glow: 0 0 8px rgba(0,255,136,0.6)
+```
+
+### 3.3 Data Table (Facilitator Comparison)
 
 **Structure:**
+- Full-width table, horizontal scroll on mobile
+- Header row: Background #1a1a1a, border-bottom 2px solid cyan
+- Data rows: Background #141414, border-bottom 1px solid rgba(255,255,255,0.05)
+- Hover row: Background #1e1e1e
+
+**Columns:**
+| Column | Width | Alignment | Format |
+|--------|-------|-----------|--------|
+| Facilitator Name | 180px | Left | Bold, zinc-200 |
+| Market Cap | 140px | Right | Monospace, $48M format |
+| Active Wallets | 140px | Right | Monospace, 37K format |
+| Transaction Fee | 120px | Right | Monospace, 30bps |
+| Trust Score | 120px | Center | Badge with star icon |
+| Privacy Level | 120px | Center | Badge (High/Medium/Low) |
+| API Endpoints | 120px | Right | Number |
+| Uptime | 100px | Right | Percentage with green/red |
+
+**ZKx401 Row Highlight:**
+- Background: rgba(139,92,246,0.1) (purple tint)
+- Border-left: 3px solid #8b5cf6 (purple accent)
+- Font weight: 600 (semibold)
+
+**Cell Padding:** 16px vertical, 20px horizontal
+
+**Badges:**
+- Trust Score: Star icon + number (4.8/5.0), yellow/cyan color
+- Privacy Level: High (green badge), Medium (orange), Low (red)
+- Format: 6px radius, 4px padding, 12px font
+
+### 3.4 Button Components
+
+**Primary Button (Accent Fill):**
 ```
-Button Container
-├── Background (accent-primary)
-├── Text (white, semibold 600, 16px)
-└── Icon (optional, 20px, right side)
-```
-
-**Tokens:**
-- Height: 48px
-- Padding: space-sm (16px) horizontal, space-lg (32px) horizontal for wide buttons
-- Radius: radius-md (12px)
-- Background: accent-primary (#3b82f6)
-- Color: #ffffff
-- Font: Semibold 600, 16px
-
-**States:**
-- Default: Solid blue background
-- Hover: brightness(110%) + glow-primary effect
-- Active: brightness(95%)
-- Disabled: opacity 50%, no hover effects
-
-**Secondary Button (Outline with Accent):**
-
-**Tokens:**
-- Same dimensions as primary
-- Background: transparent
-- Border: 2px solid accent-primary
-- Color: accent-primary
-- Font: Semibold 600, 16px
-
-**States:**
-- Hover: Background accent-primary, color white, glow-primary
-- Active: brightness(95%)
-
----
-
-### 3.3 Feature Card (3-Column Grid)
-
-**Structure:**
-```
-Card Container
-├── Icon Container (48px, accent-primary glow)
-├── Title (24px, headline-2)
-├── Description (16px, body text, text-secondary)
-└── Optional: Learn More link (14px, accent-primary)
+Height:     48px
+Padding:    16px 32px
+Radius:     12px
+Font:       16px, semibold 600
+Background: #00d4ff (cyan)
+Color:      #000000 (black text for contrast)
+Border:     None
+Hover:      Background #33ddff (lighter), glow-cyan
+Active:     Scale 0.98
 ```
 
-**Tokens:**
-- Background: bg-elevated (#141414)
-- Padding: space-lg (32px)
-- Radius: radius-lg (16px)
-- Border: border-subtle (1px rgba(255, 255, 255, 0.1))
-- Shadow: shadow-card
-- Gap: space-md (24px) between cards
-
-**States:**
-- Default: Elevated surface with subtle border
-- Hover: Background bg-hover (#1e1e1e), border-moderate, translate up 4px
-- Transition: duration-base (250ms)
-
-**Icon Styling:**
-- Size: 48px
-- Color: accent-primary (#3b82f6)
-- Background: rgba(59, 130, 246, 0.1) circle
-- Padding: 12px
-- Glow on hover: glow-subtle
-
-**Grid Layout:**
-- Desktop: 3 columns, 24px gap
-- Tablet: 2 columns, 24px gap
-- Mobile: 1 column, 16px gap
-
----
-
-### 3.4 Code Block Component
-
-**Structure:**
+**Secondary Button (Outline):**
 ```
-Code Block Container
-├── Header (optional, language label)
-├── Code Content (monospace)
-│   ├── Line numbers (optional)
-│   └── Syntax highlighted text
-└── Copy button (top-right, absolute)
+Same dimensions
+Background: Transparent
+Border:     2px solid #00d4ff
+Color:      #00d4ff
+Hover:      Background #00d4ff, color #000000, glow-cyan
 ```
 
-**Tokens:**
-- Background: bg-elevated (#141414)
-- Padding: space-md (24px)
-- Radius: radius-md (12px)
-- Border: border-subtle
-- Font: monospace (JetBrains Mono), 14px
-- Line-height: 1.6
-
-**Syntax Highlighting (Dark Theme):**
-- Keywords: accent-secondary (#a855f7)
-- Strings: success (#22c55e)
-- Functions: accent-primary (#3b82f6)
-- Comments: text-tertiary (#71717a)
-
-**Copy Button:**
-- Size: 32px × 32px
-- Position: Absolute top-right (12px, 12px)
-- Icon: Copy icon (20px, text-secondary)
-- Hover: text-primary, bg-hover
-
----
-
-### 3.5 Navigation Bar
-
-**Structure:**
+**Ghost Button (Subtle):**
 ```
-Navigation Container (fixed top)
-├── Logo (left, 32px height)
-├── Navigation Links (center/right)
-│   ├── Link 1 (Docs)
-│   ├── Link 2 (GitHub)
-│   └── Link 3 (NPM)
-└── CTA Button (right, primary style)
+Same dimensions
+Background: Transparent
+Border:     None
+Color:      #a1a1aa (zinc-400)
+Hover:      Background #1e1e1e, color #e4e4e7
 ```
 
-**Tokens:**
-- Height: 64px
-- Background: rgba(10, 10, 10, 0.9) with backdrop-blur(10px)
-- Border-bottom: border-subtle
-- Padding: space-sm (16px) horizontal
-- Position: Fixed top, z-index 100
+**Button Group:**
+- Gap: 16px horizontal
+- Mobile: Stack vertical, full-width buttons
 
-**Navigation Links:**
-- Font: 14px, medium 500
-- Color: text-secondary (#a1a1aa)
-- Hover: text-primary (#e4e4e7) + accent-primary underline (2px, bottom)
-- Gap: space-md (24px) between links
+### 3.5 Navigation
 
-**Responsive:**
-- Desktop: Horizontal links
-- Mobile: Hamburger menu (right side), slide-in drawer
-
----
-
-### 3.6 Use Case Icon Grid (4-Column)
-
-**Structure:**
+**Top Navigation Bar:**
 ```
-Grid Container
-├── Use Case Item 1
-│   ├── Icon (32px, accent-primary)
-│   ├── Title (16px, semibold)
-│   └── Description (14px, text-secondary)
-├── Use Case Item 2
-├── Use Case Item 3
-└── Use Case Item 4
+Height:          64px
+Background:      rgba(10,10,10,0.9) with backdrop-blur(12px)
+Border-bottom:   1px solid rgba(255,255,255,0.1)
+Padding:         0 48px (desktop), 0 24px (mobile)
+Position:        Sticky top-0
+Z-index:         50
+
+Layout:
+  ├── Logo (left, 32px height)
+  ├── Nav Links (center/left, gap 32px)
+  │   └── Each link: zinc-400, hover zinc-200 + cyan underline (2px)
+  └── CTA Button (right, primary style)
 ```
 
-**Tokens:**
-- Background: Transparent (no card background)
-- Padding per item: space-md (24px)
-- Text-align: Center
-- Gap: space-lg (32px) between items
+**Mobile Navigation:**
+- Hamburger menu (24px icon, right side)
+- Full-screen overlay (#0a0a0a, 95% opacity)
+- Nav links: Vertical stack, 56px height each
 
-**Icon Styling:**
-- Size: 32px
-- Color: accent-primary
-- No background circle (minimal style)
-- Hover: glow-subtle
+### 3.6 Chart Visualization
 
-**Grid Layout:**
-- Desktop: 4 columns
-- Tablet: 2 columns
-- Mobile: 1 column
+**Line Chart (Transaction Volume):**
+```
+Container:       Full-width card, background #141414
+Height:          300-400px (desktop), 240px (mobile)
+Padding:         32px
+Chart library:   ECharts or Chart.js recommended
+
+Visual style:
+  - Line color:    #00d4ff (cyan)
+  - Line width:    2-3px
+  - Gradient fill: Linear gradient from rgba(0,212,255,0.3) to transparent
+  - Grid lines:    rgba(255,255,255,0.05), 1px
+  - Axis labels:   12px, zinc-400
+  - Tooltips:      Background #1a1a1a, border cyan, shadow-modal
+```
+
+**Sparkline Chart (Mini):**
+```
+Dimensions:  100% width x 60px height
+Style:       Line only (no grid, no axes)
+Color:       Accent based on data (green if positive trend, red if negative)
+Smooth:      Bezier curve interpolation
+```
 
 ---
 
 ## 4. Layout & Responsive
 
-### 4.1 Page Architecture (Single-Page Flow)
+### 4.1 Website Structure (SPA)
 
-Berdasarkan content-structure-plan.md, website ini adalah Single-Page Application dengan section flow sebagai berikut:
+Berdasarkan content-structure-plan.md, layout mengikuti vertical scroll dengan 7 sections:
 
-**Section Sequence:**
-
-1. **Hero Section** (100vh)
-   - Full viewport height dengan animated background
-   - Centered content: Logo + Title + Subtitle + CTAs
-   - Animated particle/wire canvas (full screen)
-
-2. **Mission Statement Section** (auto height, min 400px)
-   - 2-column layout: Visual element (left 40%) + Text content (right 60%)
-   - Asymmetric split untuk visual interest
-   - Background: bg-near-black (#0a0a0a)
-   - Padding: space-2xl (64px) vertical
-
-3. **Key Features Section** (auto height)
-   - Section header: "Privacy-First Features"
-   - 3-column card grid (apply §3.3 Feature Card)
-   - Background: bg-pure-black (#000000) for contrast
-   - Padding: space-3xl (96px) vertical
-   - Gap: space-md (24px) between cards
-
-4. **Technical Integration Section** (auto height)
-   - Section header: "Quick Start"
-   - Code block component (apply §3.4 Code Block)
-   - Installation command + basic usage example
-   - Background: bg-near-black (#0a0a0a)
-   - Max-width: 800px, centered
-   - Padding: space-2xl (64px) vertical
-
-5. **Use Cases Section** (auto height)
-   - Section header: "Built For"
-   - 4-column icon grid (apply §3.6 Use Case Grid)
-   - Background: bg-pure-black (#000000)
-   - Padding: space-3xl (96px) vertical
-
-6. **CTA Footer Section** (auto height, min 300px)
-   - Centered CTA block
-   - Primary CTA: "Install Package"
-   - Links: Documentation, GitHub, NPM
-   - Background: bg-near-black (#0a0a0a)
-   - Padding: space-2xl (64px) vertical
-
-**Visual Hierarchy:**
-- Hero: Dominan (100vh) dengan full animated background
-- Features & Use Cases: Highlighted dengan pure black backgrounds (#000000)
-- Other sections: bg-near-black (#0a0a0a) untuk layered depth
-
-**Navigation Pattern:**
-- Fixed header (apply §3.5 Navigation Bar)
-- Smooth scroll anchor links untuk section navigation
-- Scroll-to-top button (appears after 300px scroll)
-
-**Transitions:**
-- Smooth scroll behavior: `scroll-behavior: smooth`
-- Section fade-in on scroll: Intersection Observer API
-- No parallax (reduce motion complexity untuk accessibility)
-
-### 4.2 Responsive Strategy
-
-**Breakpoints:**
+**Section Flow:**
 ```
-sm:  640px   (Mobile)
-md:  768px   (Tablet)
-lg:  1024px  (Desktop)
-xl:  1280px  (Large desktop)
+1. Hero Dashboard (500-600px)
+   - Full-width dark gradient
+   - Centered headline + live stats bar
+   - CTA buttons
+
+2. Real-Time Network Monitor (auto height, ~600-800px)
+   - Section header (centered, 80px padding-top)
+   - Network stats grid (3 columns x 2 rows)
+   - USDC price card + ZK proof stats (2 column)
+   - Transaction flow chart (full-width)
+
+3. Facilitator Comparison Matrix (auto height)
+   - Section header with market size badge
+   - Comparison table (horizontal scroll on mobile)
+   - ZKx401 highlight badge below table
+
+4. Competitive Advantages (auto height)
+   - Section header
+   - Feature card grid (3 columns → 1 column mobile)
+   - Card pattern: Icon + title + description + feature image
+
+5. Payment Routing Visualization (auto height, ~500px)
+   - Section header
+   - Flow diagram (SVG, full-width, 300px height)
+   - Step cards timeline (5 cards, horizontal scroll mobile)
+
+6. Activity Feed & Integration (auto height)
+   - 2-column layout (activity feed left 5 cols, integration card right 7 cols)
+   - Mobile: Stack vertical
+   - Revenue calculator (interactive form)
+
+7. Footer (auto height, 200px)
+   - 4-column layout (logo + nav + social + status)
+   - Mobile: 1 column stack
 ```
 
-**Grid Adaptations:**
+### 4.2 Grid System
 
-| Component | Desktop (lg+) | Tablet (md) | Mobile (sm) |
-|-----------|---------------|-------------|-------------|
-| Feature Cards | 3 columns | 2 columns | 1 column |
-| Use Case Grid | 4 columns | 2 columns | 1 column |
-| Mission Layout | 2 columns (40/60) | 1 column stack | 1 column stack |
+**Desktop (≥1024px):**
+- Container max-width: 1280px (2xl)
+- Padding horizontal: 48px
+- Column count: 12 columns
+- Gap: 24px
 
-**Typography Scaling:**
-- Hero title: 56px → 36px (mobile)
-- Section headers: 36px → 28px (mobile)
-- Body text: 16px (unchanged)
+**Tablet (768-1023px):**
+- Container: Full-width
+- Padding: 32px
+- Column count: 8 columns
+- Gap: 20px
 
-**Spacing Adjustments:**
-- Section padding: 96px → 48px (mobile)
-- Card padding: 32px → 24px (mobile)
-- Grid gaps: 24px → 16px (mobile)
+**Mobile (≤767px):**
+- Container: Full-width
+- Padding: 20px
+- Column count: 4 columns
+- Gap: 16px
 
-**Touch Targets:**
-- All buttons: ≥48×48px (already specified)
-- Navigation links: Increase padding to 48px height on mobile
-- Icon buttons: Minimum 44×44px tap area
+### 4.3 Breakpoints
 
-**Mobile-Specific Optimizations:**
-- Reduce animated particles: 80-120 → 40-60 (mobile) untuk performance
-- Simplify glow effects: Single layer instead of multi-layer
-- Navigation: Hamburger menu dengan slide-in drawer
+| Name | Min Width | Max Width | Target Device |
+|------|-----------|-----------|---------------|
+| sm | 640px | 767px | Large mobile |
+| md | 768px | 1023px | Tablet |
+| lg | 1024px | 1279px | Desktop |
+| xl | 1280px | - | Large desktop |
+
+### 4.4 Responsive Patterns
+
+**Network Stats Grid:**
+- Desktop: 3 columns
+- Tablet: 2 columns
+- Mobile: 1 column (full-width cards)
+
+**Feature Cards:**
+- Desktop: 3 columns
+- Tablet: 2 columns
+- Mobile: 1 column
+
+**Comparison Table:**
+- Desktop: Full table width
+- Tablet/Mobile: Horizontal scroll (maintain table structure, don't collapse)
+
+**Activity Feed + Integration:**
+- Desktop: 2 columns (5/7 split)
+- Mobile: Vertical stack (activity feed first)
+
+**Hero Stats Bar:**
+- Desktop: 4 cards horizontal
+- Mobile: Horizontal scroll (snap scroll, 100% viewport width per card)
+
+### 4.5 Container Widths
+
+| Element | Max Width | Usage |
+|---------|-----------|-------|
+| Main container | 1280px | Standard sections |
+| Content width | 1200px | Hero content, text blocks |
+| Narrow content | 800px | Long-form text (if needed) |
+| Full-width | 100% | Charts, tables, hero background |
 
 ---
 
@@ -477,152 +493,155 @@ xl:  1280px  (Large desktop)
 
 ### 5.1 Animation Standards
 
-**Timing Values:**
-- Fast interactions: duration-fast (150ms) - button hovers, icon changes
-- Standard transitions: duration-base (250ms) - card elevation, link hovers
-- Slow animations: duration-slow (400ms) - modal open/close, drawer slide-in
-- Background particles: duration-particle (3000ms) - continuous loop
+**Hover Transitions:**
+- Cards: Background color change (250ms ease-out) + border glow
+- Buttons: Background color + glow effect (150ms)
+- Links: Color change + underline slide-in (200ms)
 
-**Easing Function:**
-- Preferred: `ease-out` untuk natural deceleration
-- Alternative: `cubic-bezier(0.4, 0.0, 0.2, 1)` untuk sharp exits
-
-**Performance Rule:**
-- ✅ Animate ONLY: `transform` dan `opacity` (GPU-accelerated)
-- ❌ NEVER animate: `width`, `height`, `margin`, `padding`, `left`, `top`
-
-### 5.2 Interactive Elements
-
-**Button Animations:**
-```
-.button-primary:hover {
-  transform: translateY(-2px);
-  filter: brightness(110%);
-  box-shadow: glow-primary;
-  transition: all duration-fast ease-out;
-}
+**Live Status Indicators:**
+```css
+Pulsing Dot Animation:
+  - Duration: 2000ms infinite
+  - Keyframes: Scale 1.0 → 1.3 → 1.0, opacity 1.0 → 0.6 → 1.0
+  - Color: #00ff88 with green glow
 ```
 
-**Card Hover Effects:**
+**Number Counter Animation:**
 ```
-.feature-card:hover {
-  transform: translateY(-4px);
-  background: bg-hover;
-  border-color: border-moderate;
-  transition: all duration-base ease-out;
-}
-```
-
-**Glow Pulse Animation (Continuous):**
-```
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-.icon-glow {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
+When stat value updates:
+  - Duration: 1000ms
+  - Easing: ease-out
+  - Increment from old value to new value smoothly
+  - Use CountUp.js or similar library
 ```
 
-**Particle Animation Logic:**
-- Each particle moves dengan random velocity (0.2-0.5px per frame)
-- Direction changes randomly setiap 3-5 seconds
-- Mouse attraction: Particles within 150px radius move toward cursor (gentle pull)
-- Boundary detection: Particles bounce off viewport edges
+**Chart Entrance:**
+```
+On section enter viewport:
+  - Line draws from left to right (800ms)
+  - Gradient fade-in (400ms delay)
+  - Points appear sequentially (100ms stagger)
+```
 
-### 5.3 Scroll-Based Interactions
+### 5.2 Scroll Behavior
 
-**Section Fade-In:**
-- Trigger: Intersection Observer (threshold: 0.2)
-- Effect: `opacity: 0 → 1`, `translateY(20px) → 0`
-- Duration: duration-slow (400ms)
-- Easing: ease-out
+**Smooth Scroll:**
+- Navigation anchor links: `scroll-behavior: smooth`
+- Duration: ~800ms untuk full-page scroll
 
-**Navigation Background:**
-- Trigger: Scroll position > 50px
-- Effect: Navigation background opacity increases, backdrop-blur activates
-- Transition: duration-base (250ms)
+**Scroll Triggers (Optional Subtle):**
+- Cards fade-in when entering viewport (opacity 0 → 1, 400ms)
+- No heavy parallax (avoid motion sickness)
+- Use Intersection Observer API
 
-### 5.4 Reduced Motion Support
+### 5.3 Interactive Elements
 
-**Accessibility:**
+**Card Hover:**
+```css
+Default state:
+  background: #141414
+  border: 1px solid rgba(255,255,255,0.1)
+  
+Hover state (250ms transition):
+  background: #1e1e1e
+  border: 1px solid rgba(0,212,255,0.3)
+  box-shadow: glow-cyan
+  transform: translateY(-2px) [subtle lift]
+```
+
+**Button Press:**
+```css
+Active state:
+  transform: scale(0.98)
+  transition: 100ms
+```
+
+**Table Row Hover:**
+```css
+Hover:
+  background: #1e1e1e
+  transition: 150ms
+```
+
+### 5.4 Loading States
+
+**Skeleton Loaders (for live data):**
+- Background: Linear gradient shimmer
+- Colors: #141414 → #1e1e1e → #141414
+- Animation: 1500ms infinite
+- Use for stat cards, table rows while loading
+
+**Spinner (modals, buttons):**
+- Size: 20px (button), 40px (modal)
+- Color: Cyan #00d4ff
+- Animation: Rotate 360deg, 800ms linear infinite
+
+### 5.5 Reduced Motion Support
+
 ```css
 @media (prefers-reduced-motion: reduce) {
-  /* Disable particle animations */
-  .animated-background {
-    animation: none;
-    opacity: 0.3; /* Static particles only */
-  }
-  
-  /* Reduce transform animations */
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
   
-  /* Maintain hover states without motion */
-  .button:hover,
-  .card:hover {
-    transform: none;
-    transition: opacity duration-fast;
+  /* Keep critical live indicators */
+  .live-indicator {
+    animation: none;
+    /* Static green dot without pulse */
   }
 }
 ```
 
-**Dark Mode Specific:**
-- Reduce motion intensity: max 8px translateY (vs 16px in light mode)
-- Slower durations: +50ms compared to light mode recommendations
-- Avoid bright flashes: No brightness changes >10% in <200ms
+### 5.6 Forbidden Animations
 
-### 5.5 Loading States
+❌ **AVOID:**
+- Bright flashing (>50% brightness change <200ms) - eye strain
+- Heavy particle systems - performance issues
+- Excessive parallax (>16px offset) - motion sickness
+- Auto-playing videos with sound
+- Infinite rotating elements (except loading spinners)
 
-**Initial Page Load:**
-1. Hero content fades in: duration-slow (400ms)
-2. Particle animation starts after 200ms delay
-3. Sections fade in sequentially on scroll
-
-**Button Loading State:**
-- Replace text dengan spinner icon
-- Disable pointer events
-- Opacity: 70%
-- Spinner color: current text color
-
----
-
-## Quality Checklist
-
-✅ **Style Guide Compliance:**
-- Dark Mode First aesthetic applied (pure black #000000, elevated surfaces #141414)
-- Cyber blue accent (#3b82f6) sebagai primary color
-- Glow effects instead of drop shadows
-- Typography weights 400-500 untuk dark backgrounds
-
-✅ **Premium Essentials:**
-- Hero section: 100vh height ✓
-- Card padding: 32px ✓
-- Section spacing: 64-96px ✓
-- Background layers: Pure black + near-black + elevated (3 layers) ✓
-
-✅ **WCAG Compliance:**
-- Primary text contrast: 15.2:1 (AAA) ✓
-- Accent contrast: 8.6:1 (AAA) ✓
-- Touch targets: ≥48×48px ✓
-
-✅ **4-Point Grid:**
-- All spacing values: 8px, 16px, 24px, 32px, 48px, 64px, 96px ✓
-- Border radius: 8px, 12px, 16px, 24px ✓
-
-✅ **Performance:**
-- Transform/opacity animations only ✓
-- Reduced motion support ✓
-- Mobile particle count reduced ✓
-
-✅ **Component Count:**
-- 6 components specified (Hero, Button, Card, Code Block, Navigation, Icon Grid) ✓
+✅ **ALLOWED:**
+- Subtle fade-ins (opacity transitions)
+- Small transforms (≤8px translateY)
+- Color transitions
+- Glow effects on hover
+- Smooth scrolling
+- Number counters
+- Pulsing status dots (2s duration, subtle)
 
 ---
 
-**Document Created:** 2025-10-30
-**Author:** MiniMax Agent
-**Version:** 1.0
+## Design Validation Checklist
+
+### Style Guide Compliance:
+✅ Colors: 90% dark surfaces, 10% neon accents (cyan, green, purple)
+✅ Typography: Inter for UI, JetBrains Mono for data, 400-500 weights on dark
+✅ Spacing: 4pt grid system, prefer 8pt multiples
+✅ Components: Dashboard-optimized (stat cards, tables, charts)
+✅ Dark Mode First principles: Pure black base, vibrant accents, glow effects
+
+### Dashboard Requirements:
+✅ Real-time data focus: Stat cards, live indicators, charts
+✅ Multi-neon accent system: Cyan (x402), green (success), purple (premium)
+✅ Professional aesthetic: Clean, minimal, data-driven
+✅ Competitive positioning: Comparison table, advantage cards
+
+### WCAG Compliance:
+✅ Text contrast: ≥4.5:1 minimum (achieved 15.2:1 for primary text)
+✅ Interactive states: Clear hover/focus indicators
+✅ Reduced motion: Support for prefers-reduced-motion
+✅ Color not sole indicator: Icons + text labels for status
+
+### Responsive:
+✅ Mobile-first approach
+✅ Touch targets: ≥48x48px on mobile
+✅ Horizontal scroll tables (maintain structure)
+✅ Simplified navigation on mobile
+
+---
+
+**Document Version:** 2.0 - x402 Facilitator Dashboard Redesign
+**Created:** 2025-10-31
+**Word Count:** ~2,400 words

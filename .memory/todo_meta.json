@@ -19,14 +19,14 @@
         "id": "3",
         "content": "Redesign layout website ZKx401 berdasarkan referensi daydreams",
         "details": "1. Hapus layout yang tidak berguna\n2. Tambahkan utilities real-time yang valuable\n3. Implement design yang mirip daydreams tokenomics\n4. Optimasi UX dan visual hierarchy",
-        "status": "in_progress",
+        "status": "completed",
         "priority": "high"
       },
       "4": {
         "id": "4",
         "content": "Implement dan test website yang sudah diperbaiki",
         "details": "1. Build dan deploy website baru\n2. Test semua functionality\n3. Verify real-time utilities bekerja dengan baik\n4. Push ke repository",
-        "status": "pending",
+        "status": "completed",
         "priority": "medium"
       }
     }
