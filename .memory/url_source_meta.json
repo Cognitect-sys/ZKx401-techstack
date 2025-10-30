@@ -1,5 +1,5 @@
 {
-  "_source_id": 31,
+  "_source_id": 48,
   "sources": {
     "ZK Libraries Analysis for Solana": {
       "https://zkkit.org/": {
@@ -215,6 +215,129 @@
         "url": "https://research.utwente.nl/files/484230904/Security_and_Privacy_-_2024_-_Oude_Roelink_-_Systematic_review_Comparing_zk_SNARK_zk_STARK_and_bulletproof_protocols_for.pdf",
         "title": "Systematic Review Comparing zk-SNARK, zk-STARK, and Bulletproof Protocols",
         "info": "Academic research analyzing comparative performance and security implications of implementing zk-SNARKs, zk-STARKs, and bulletproof protocols for privacy-preserving applications, focusing on blockchain and financial use cases."
+      }
+    },
+    "Analisis Library ZK (circom, snarkjs, @zk-kit)": {
+      "https://github.com/iden3/circom": {
+        "id": 32,
+        "publisher": "iden3",
+        "url": "https://github.com/iden3/circom",
+        "title": "circom - zkSnark circuit compiler",
+        "info": "Compiler sirkuit ZK dengan 1.5k GitHub stars, mendukung R1CS, WebAssembly output, template modular, dan ekosistem lengkap dengan circomLib dan tools analisis statis"
+      },
+      "https://github.com/iden3/snarkjs": {
+        "id": 33,
+        "publisher": "iden3",
+        "url": "https://github.com/iden3/snarkjs",
+        "title": "snarkjs - zkSNARK implementation in JavaScript & WASM",
+        "info": "Implementasi JavaScript/WASM untuk zkSNARK dan PLONK dengan 2k GitHub stars, mendukung browser/Node.js, trusted setup multi-party, dan 7.8k repositori yang menggunakannya"
+      },
+      "https://github.com/privacy-scaling-explorations/zk-kit": {
+        "id": 34,
+        "publisher": "Privacy Scaling Explorations",
+        "url": "https://github.com/privacy-scaling-explorations/zk-kit",
+        "title": "zk-kit - Monorepo of reusable ZK libraries",
+        "info": "Monorepo ZK library TypeScript dengan 354 GitHub stars, menyediakan Merkle Trees (IMT/LeanIMT/SMT), kriptografi ZK, dan tools untuk JavaScript/TypeScript developers dengan ekosistem PSE"
+      },
+      "https://zkmopro.org/blog/circom-comparison/": {
+        "id": 35,
+        "publisher": "ZK Mopro",
+        "url": "https://zkmopro.org/blog/circom-comparison/",
+        "title": "Comparison of Circom Provers - Mopro",
+        "info": "Perbandingan kinerja berbagai prover Groth16 untuk Circom, menunjukkan rapidsnark dan witnesscalc mengungguli snarkjs dalam hal kecepatan, dengan data benchmark spesifik untuk sirkuit RSA dan zk-email"
+      },
+      "https://arxiv.org/abs/2409.01976": {
+        "id": 36,
+        "publisher": "arXiv",
+        "url": "https://arxiv.org/abs/2409.01976",
+        "title": "Benchmarking ZK-Friendly Hash Functions and SNARK Proving Systems",
+        "info": "Studi benchmark komprehensif untuk fungsi hash ZK-friendly dan sistem SNARK, menunjukkan Poseidon2 memberikan pengurangan biaya on-chain 73% pada EVM dan 26% pada Hedera"
+      },
+      "https://github.com/wkennedy/solana-zk-proof-example": {
+        "id": 37,
+        "publisher": "GitHub",
+        "url": "https://github.com/wkennedy/solana-zk-proof-example",
+        "title": "Solana ZK Proof Example",
+        "info": "Contoh implementasi ZK-SNARK proof dan verifikasi on-chain di Solana menggunakan alt_bn128_pairing syscall, menunjukkan pola integrasi praktis untuk verifikasi Groth16 di blockchain Solana"
+      },
+      "https://ceur-ws.org/Vol-3791/paper7.pdf": {
+        "id": 38,
+        "publisher": "University of Pisa",
+        "url": "https://ceur-ws.org/Vol-3791/paper7.pdf",
+        "title": "zkSNARKs Libraries for Blockchains: a Comparative Study",
+        "info": "Studi komparatif akademik antara Circom dan ZoKrates, menunjukkan Circom menghasilkan file sirkuit 4x lebih kecil, proving keys lebih efisien, dan biaya gas smart contract lebih rendah"
+      },
+      "https://arxiv.org/pdf/2502.07063": {
+        "id": 39,
+        "publisher": "arXiv",
+        "url": "https://arxiv.org/pdf/2502.07063",
+        "title": "Zero-Knowledge Proof Frameworks: A Systematic Survey",
+        "info": "Survey komprehensif 25 framework ZKP dengan analisis usability, accessibility, dan performance. Menyediakan framework evaluation untuk circom, snarkjs dan library lainnya"
+      }
+    },
+    "zk-SNARKs vs zk-STARKs untuk Solana - x402 Protocol Analysis": {
+      "https://www.helius.dev/blog/zero-knowledge-proofs-its-applications-on-solana": {
+        "id": 40,
+        "publisher": "Helius Labs",
+        "url": "https://www.helius.dev/blog/zero-knowledge-proofs-its-applications-on-solana",
+        "title": "Zero-Knowledge Proofs: Its Applications on Solana",
+        "info": "Comprehensive comparison between SNARKs and STARKs including performance metrics (proof sizes, verification times), security implications, and Solana-specific considerations. Key finding: Groth16 proof size ~128B vs STARK ~45KB; Solana ZK Compression costs: 100k CU verifier + 100k CU system overhead"
+      },
+      "https://chain.link/education-hub/zk-snarks-vs-zk-starks": {
+        "id": 41,
+        "publisher": "Chainlink",
+        "url": "https://chain.link/education-hub/zk-snarks-vs-zk-starks",
+        "title": "zk-SNARK vs zk-STARK: Complete Comparison",
+        "info": "Detailed comparison of zk-SNARKs (succinct, fast verification, trusted setup required) vs zk-STARKs (transparent, quantum-resistant, scalable). SNARK: proof sizes 100-200B, quantum vulnerable; STARK: larger proofs, post-quantum secure"
+      },
+      "https://github.com/coinbase/x402": {
+        "id": 42,
+        "publisher": "Coinbase",
+        "url": "https://github.com/coinbase/x402",
+        "title": "x402: A payments protocol for the internet",
+        "info": "x402 protocol technical specifications by Coinbase. Protocol uses HTTP 402 status code for internet payments, supports multiple blockchain networks including Solana. Enables micropayments without registration, OAuth, or complex signatures"
+      },
+      "https://blog.zksecurity.xyz/posts/solana-phantom-challenge-bug/": {
+        "id": 43,
+        "publisher": "ZK Security",
+        "url": "https://blog.zksecurity.xyz/posts/solana-phantom-challenge-bug/",
+        "title": "Phantom Challenge Soundness Bug in Solana ZK Proof Program",
+        "info": "Technical analysis of Phantom Challenge Soundness Bug in Solana's ZK ElGamal Proof Program discovered June 2025. Critical vulnerability allowed unauthorized token minting through malformed proofs. Highlighted importance of Fiat-Shamir transcript security"
+      },
+      "https://thequantuminsider.com/2025/01/04/solana-takes-a-step-toward-pqc-era-with-quantum-resistant-vault/": {
+        "id": 44,
+        "publisher": "The Quantum Insider",
+        "url": "https://thequantuminsider.com/2025/01/04/solana-takes-a-step-toward-pqc-era-with-quantum-resistant-vault/",
+        "title": "Solana Quantum Resistant Vault Implementation",
+        "info": "Security analysis of Solana's Winternitz Vault - quantum-resistant vault using Winternitz One-Time Signatures (WOTS). Provides 224-bit quantum resistance using truncated Keccak256. Optional feature not enabled by default"
+      },
+      "https://ethresear.ch/t/benchmarking-zkp-development-frameworks-the-pantheon-of-zkp/14943": {
+        "id": 45,
+        "publisher": "EthResearch",
+        "url": "https://ethresear.ch/t/benchmarking-zkp-development-frameworks-the-pantheon-of-zkp/14943",
+        "title": "Benchmarking ZKP Development Frameworks: The Pantheon of ZKP",
+        "info": "Benchmarking study of ZKP frameworks including Circom, gnark, Arkworks, Starky, Plonky2. Results: Groth16 fastest prover times but largest proofs, STARK frameworks 5-50x faster than SNARKs but require larger proof sizes. Starky shows significant speed advantages"
+      },
+      "https://medium.com/@mehialiabadi/plonk-vs-groth16-50254c157196": {
+        "id": 46,
+        "publisher": "Medium",
+        "url": "https://medium.com/@mehialiabadi/plonk-vs-groth16-50254c157196",
+        "title": "PLONK vs Groth16: Implementation Comparison",
+        "info": "Practical comparison between Groth16 and PLONK implementations. Groth16: ~200B proof size, per-circuit trusted setup, faster prover. PLONK: 500-1000B proof size, universal setup, 2.25x slower prover but flexible for multiple circuits"
+      },
+      "https://www.quicknode.com/guides/solana-development/spl-tokens/token-2022/confidential": {
+        "id": 47,
+        "publisher": "QuickNode",
+        "url": "https://www.quicknode.com/guides/solana-development/spl-tokens/token-2022/confidential",
+        "title": "Confidential Transfers on Solana: A Developer's Guide",
+        "info": "Developer's guide to implementing confidential transfers on Solana using Token-2022 Confidential Transfer Extension. Uses ElGamal encryption and ZK proofs for privacy, requires off-chain proof generation, on-chain verification with ZK ElGamal Proof Program"
+      },
+      "https://www.helius.dev/blog/solana-builders-zk-compression": {
+        "id": 48,
+        "publisher": "Helius Labs",
+        "url": "https://www.helius.dev/blog/solana-builders-zk-compression",
+        "title": "Solana Builders — ZK Compression",
+        "info": "Technical details of ZK Compression implementation using Groth16 SNARKs with ~128B proof size, achieving 5000x cost reduction for account creation. Requires alt_bn128 syscalls for pairing operations. Currently limited to 100k CU verification costs"
       }
     }
   }

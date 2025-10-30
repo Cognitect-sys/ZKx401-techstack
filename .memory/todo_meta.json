@@ -5,7 +5,7 @@
         "id": "1",
         "content": "Riset teknologi Zero-Knowledge untuk Solana",
         "details": "1. Penelitianzk-SNARKs vs zk-STARKs untuk Solana\n2. Analisis library seperti circom, snarkjs, atau@zk-kit\n3. Evaluasi privacy features yang bisa ditambahkan ke x402\n4. Tentukan approach untuk private payments",
-        "status": "in_progress",
+        "status": "completed",
         "priority": "high"
       },
       "2": {
@@ -19,7 +19,7 @@
         "id": "3",
         "content": "Implementasi core ZKx401 library",
         "details": "1. Clone dan modify x402-solana codebase\n2. Implement ZK proof generation untuk payments\n3. Modify payment verification untuk support private payments\n4. Add anonymous transaction support\n5. Maintain backward compatibility dengan x402",
-        "status": "pending",
+        "status": "in_progress",
         "priority": "high"
       },
       "4": {
