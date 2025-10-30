@@ -1,5 +1,5 @@
 {
-  "_source_id": 9,
+  "_source_id": 31,
   "sources": {
     "ZK Libraries Analysis for Solana": {
       "https://zkkit.org/": {
@@ -64,6 +64,157 @@
         "url": "https://solana.stackexchange.com/questions/3264/does-solana-support-any-popular-zksnark-libraries",
         "title": "Does Solana support any popular zkSNARK libraries?",
         "info": "Community discussion revealing that Solana does not natively support zkSNARK libraries, requires ad-hoc implementations, mentions upcoming curve-25519 syscall for simple pairing-based zkSNARKs"
+      }
+    },
+    "Analisis Library Zero-Knowledge untuk Solana/JavaScript/TypeScript": {
+      "https://github.com/iden3/snarkjs": {
+        "id": 10,
+        "publisher": "iden3",
+        "url": "https://github.com/iden3/snarkjs",
+        "title": "snarkjs: zkSNARK implementation in JavaScript & WASM",
+        "info": "Implementasi zkSNARK dan PLONK dalam JavaScript & WASM, mendukung Groth16/PLONK/FFLONK, kompatibel dengan circom, GitHub 2k stars, 472 forks, 47 contributors"
+      },
+      "https://github.com/privacy-scaling-explorations/zk-kit": {
+        "id": 11,
+        "publisher": "Privacy Scaling Explorations",
+        "url": "https://github.com/privacy-scaling-explorations/zk-kit",
+        "title": "zk-kit: Monorepo reusable libraries for zero-knowledge",
+        "info": "Monorepo pustaka JS/TS untuk ZK dengan packages seperti @zk-kit/eddsa-poseidon, @zk-kit/imt, GitHub 354 stars, 110 forks, 41 contributors"
+      },
+      "https://docs.rs/solana-zk-sdk": {
+        "id": 12,
+        "publisher": "Solana Foundation",
+        "url": "https://docs.rs/solana-zk-sdk",
+        "title": "solana_zk_sdk - Rust crate documentation",
+        "info": "Official Solana ZK SDK v4.0.0 dalam Rust untuk pembuatan dan verifikasi zero-knowledge proofs pada data terenkripsi, Apache-2.0 license"
+      },
+      "https://lightprotocol.com/": {
+        "id": 13,
+        "publisher": "Light Protocol",
+        "url": "https://lightprotocol.com/",
+        "title": "Light Protocol - ZK Compression for Solana",
+        "info": "ZK Compression framework untuk Solana, memungkinkan pembuatan token/PDA dengan biaya fraksional tanpa mengorbankan L1 performance, open-source development"
+      },
+      "https://github.com/anagrambuild/tour-de-zk": {
+        "id": 14,
+        "publisher": "AnagramBuild",
+        "url": "https://github.com/anagrambuild/tour-de-zk",
+        "title": "tour-de-zk: Solana list of ZK projects",
+        "info": "Katalog lengkap proyek ZK di Solana termasuk syscalls (Poseidon, Altbn128), Groth16 verifiers, dan integrasi library seperti Light Protocol"
+      },
+      "https://github.com/iden3/circom": {
+        "id": 15,
+        "publisher": "iden3",
+        "url": "https://github.com/iden3/circom",
+        "title": "iden3/circom: zkSnark circuit compiler",
+        "info": "Compiler zkSnark circuits written in Rust, language for defining arithmetic circuits for zero-knowledge proofs, 1.5k stars, 341 forks, 68 contributors, GPL-3.0 license"
+      },
+      "https://docs.circom.io/": {
+        "id": 16,
+        "publisher": "COSTA research group",
+        "url": "https://docs.circom.io/",
+        "title": "Circom 2 Documentation",
+        "info": "Comprehensive Circom documentation covering language features, compiler, circomlib, circomlibjs, circom_tester, ffjavascript, and snarkjs ecosystem. Provides detailed tutorials and examples."
+      },
+      "https://docs.gnark.consensys.io/": {
+        "id": 17,
+        "publisher": "Consensys",
+        "url": "https://docs.gnark.consensys.io/",
+        "title": "gnark: Welcome to zk-SNARK library",
+        "info": "Fast zk-SNARK library offering high-level API for circuit design in Go, includes playground, debugging tools, and comprehensive documentation. Open source under Apache-2.0 license"
+      },
+      "https://github.com/arkworks-rs/snark": {
+        "id": 18,
+        "publisher": "Arkworks.rs",
+        "url": "https://github.com/arkworks-rs/snark",
+        "title": "arkworks-rs/snark: Interfaces for Relations and SNARKs",
+        "info": "Rust ecosystem for zkSNARKs providing interfaces for Relations and SNARKs, 883 stars, 253 forks, 34 contributors, 3.4k dependents, but still prototype quality not ready for production"
+      },
+      "https://docs.rs/plonky2": {
+        "id": 19,
+        "publisher": "Polygon",
+        "url": "https://docs.rs/plonky2",
+        "title": "plonky2: Rust crate documentation",
+        "info": "Rust implementation of SNARK based on PLONK and FRI techniques, 1.1.0 version, multiple modules including batch_fri, field, hash, plonk, recursion, and utilities. 48.26% documentation coverage"
+      }
+    },
+    "zk-SNARKs vs zk-STARKs Comparison for Solana": {
+      "https://chain.link/education-hub/zk-snarks-vs-zk-starks": {
+        "id": 20,
+        "publisher": "Chainlink",
+        "url": "https://chain.link/education-hub/zk-snarks-vs-zk-starks",
+        "title": "ZK-SNARK vs ZK-STARK - Explained Simple",
+        "info": "Comprehensive technical comparison between zk-SNARKs and zk-STARKs including proof sizes, verification times, trusted setup requirements, and security differences. Provides statistical data on adoption rates and performance metrics."
+      },
+      "https://consensys.io/blog/zero-knowledge-proofs-starks-vs-snarks": {
+        "id": 21,
+        "publisher": "Consensys",
+        "url": "https://consensys.io/blog/zero-knowledge-proofs-starks-vs-snarks",
+        "title": "Zero-Knowledge Proofs: STARKs vs SNARKs",
+        "info": "Detailed analysis of performance, security, and implementation differences between STARKs and SNARKs for blockchain applications. Includes quantum resistance comparison and gas cost analysis with specific ratios."
+      },
+      "https://hacken.io/discover/zk-snark-vs-zk-stark/": {
+        "id": 22,
+        "publisher": "Hacken.io",
+        "url": "https://hacken.io/discover/zk-snark-vs-zk-stark/",
+        "title": "Comparing ZK-SNARKs & ZK-STARKs: Key Distinctions",
+        "info": "Technical comparison focusing on security properties, performance metrics, and practical implementation considerations. Covers scalability, quantum resistance, and blockchain rollup applications."
+      },
+      "https://www.calibraint.com/blog/zk-snark-vs-stark-differences-comparison": {
+        "id": 23,
+        "publisher": "Calibraint",
+        "url": "https://www.calibraint.com/blog/zk-snark-vs-stark-differences-comparison",
+        "title": "Decoding ZK-SNARK VS STARK: An In-Depth Comparative Analysis",
+        "info": "Deep-dive analysis of zk-SNARKs vs zk-STARKs with detailed specifications, implementation complexity, and blockchain use cases. Provides adoption statistics and technical requirements."
+      },
+      "https://www.helius.dev/blog/zero-knowledge-proofs-its-applications-on-solana": {
+        "id": 24,
+        "publisher": "Helius",
+        "url": "https://www.helius.dev/blog/zero-knowledge-proofs-its-applications-on-solana",
+        "title": "Zero-Knowledge Proofs: Its Applications on Solana",
+        "info": "Comprehensive overview of ZK implementation in Solana including both SNARK and STARK applications, performance metrics, cost reductions, and technical specifications of current implementations."
+      },
+      "https://lhorla.medium.com/a-deep-dive-on-zk-on-solana-vs-ethereum-16c67e2d4271": {
+        "id": 25,
+        "publisher": "Medium",
+        "url": "https://lhorla.medium.com/a-deep-dive-on-zk-on-solana-vs-ethereum-16c67e2d4271",
+        "title": "A deep dive on zk on Solana vs Ethereum",
+        "info": "Side-by-side comparison of zk implementation between Solana (ZK Compression) and Ethereum (ZK Rollups). Covers architectural differences, cost benefits, and scalability approaches."
+      },
+      "https://solana.stackexchange.com/questions/3264/does-solana-support-any-popular-zksnark-libraries": {
+        "id": 26,
+        "publisher": "Solana Stack Exchange",
+        "url": "https://solana.stackexchange.com/questions/3264/does-solana-support-any-popular-zksnark-libraries",
+        "title": "Does Solana support any popular zkSNARK libraries?",
+        "info": "Technical community discussion about Solana's native support limitations for zk-SNARK libraries, future plans for syscall implementations, and current ad-hoc solutions available."
+      },
+      "https://ethereum.stackexchange.com/questions/59145/zk-snarks-vs-zk-starks-vs-bulletproofs-updated": {
+        "id": 27,
+        "publisher": "Ethereum Stack Exchange",
+        "url": "https://ethereum.stackexchange.com/questions/59145/zk-snarks-vs-zk-starks-vs-bulletproofs-updated",
+        "title": "zk-SNARKs vs. Zk-STARKs vs. BulletProofs? (Updated)",
+        "info": "Detailed performance benchmarks showing zk-SNARK prover time of 2.3s vs zk-STARK 1.6s, verification times of 10ms vs 16ms, and proof sizes of 288 bytes vs 45,000 bytes respectively."
+      },
+      "https://superteamtr.substack.com/p/comparing-zk-rollups-on-ethereum": {
+        "id": 28,
+        "publisher": "SuperTeam",
+        "url": "https://superteamtr.substack.com/p/comparing-zk-rollups-on-ethereum",
+        "title": "Comparing zk-Rollups on Ethereum and zk-Compression on Solana",
+        "info": "Comprehensive technical comparison of zk Rollups on Ethereum vs zk Compression on Solana including architectural differences, cost efficiency (160x cheaper for token accounts), and performance characteristics with specific examples."
+      },
+      "https://www.mdpi.com/2078-2489/15/8/463": {
+        "id": 31,
+        "publisher": "MDPI Information Journal",
+        "url": "https://www.mdpi.com/2078-2489/15/8/463",
+        "title": "Evaluating the Efficiency of zk-SNARK, zk-STARK, and Bulletproof",
+        "info": "Performance research evaluating efficiency metrics of zk-SNARK, zk-STARK, and Bulletproof technologies, showing zk-SNARKs produce smallest proofs while zk-STARKs generate largest, with timing analysis for proof generation."
+      },
+      "https://research.utwente.nl/files/484230904/Security_and_Privacy_-_2024_-_Oude_Roelink_-_Systematic_review_Comparing_zk_SNARK_zk_STARK_and_bulletproof_protocols_for.pdf": {
+        "id": 30,
+        "publisher": "University of Twende",
+        "url": "https://research.utwente.nl/files/484230904/Security_and_Privacy_-_2024_-_Oude_Roelink_-_Systematic_review_Comparing_zk_SNARK_zk_STARK_and_bulletproof_protocols_for.pdf",
+        "title": "Systematic Review Comparing zk-SNARK, zk-STARK, and Bulletproof Protocols",
+        "info": "Academic research analyzing comparative performance and security implications of implementing zk-SNARKs, zk-STARKs, and bulletproof protocols for privacy-preserving applications, focusing on blockchain and financial use cases."
       }
     }
   }
