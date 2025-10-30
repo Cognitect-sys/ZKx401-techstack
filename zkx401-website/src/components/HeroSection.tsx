@@ -37,13 +37,7 @@ export default function HeroSection() {
           Build and deploy fully autonomous agents that operate with complete privacy through advanced zero-knowledge protocols, enabling secure blockchain interactions without exposing sensitive data.
         </p>
 
-        {/* Daydreams Architecture Badge */}
-        <div className="mb-8 animate-slide-up" style={{animationDelay: '0.3s'}}>
-          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 border border-purple-500/30">
-            <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
-            Powered by Daydreams Architecture
-          </span>
-        </div>
+
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style={{animationDelay: '0.4s'}}>
@@ -51,7 +45,7 @@ export default function HeroSection() {
             onClick={() => scrollToSection('daydreams-demo')}
             className="bg-accent-primary hover:bg-accent-hover text-white px-8 py-3 rounded-md font-semibold text-body transition-all duration-150 transform hover:-translate-y-0.5 hover:shadow-glow-primary min-w-[160px]"
           >
-            Try Daydreams Demo
+            Start Architecture Demo
           </button>
           <button 
             onClick={() => scrollToSection('usecases')}
