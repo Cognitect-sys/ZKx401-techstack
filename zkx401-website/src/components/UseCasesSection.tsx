@@ -9,23 +9,23 @@ interface UseCase {
 const useCases: UseCase[] = [
   {
     icon: <Brain className="w-8 h-8" />,
-    title: "Private AI Services",
-    description: "Access AI APIs anonymously without exposing identity or usage patterns."
+    title: "Autonomous Trading Agents",
+    description: "Deploy AI trading agents that execute DeFi strategies with complete privacy and anonymous ZKx401 payments."
   },
   {
     icon: <Server className="w-8 h-8" />,
-    title: "Anonymous API Access",
-    description: "Secure API consumption without revealing user information or subscription details."
+    title: "Private Service Agents",
+    description: "Launch service agents that provide anonymous API access with built-in ZKx401 payment processing."
   },
   {
     icon: <Coins className="w-8 h-8" />,
-    title: "Privacy-Focused DeFi",
-    description: "Build DeFi applications that prioritize confidentiality and financial privacy."
+    title: "DeFi Automation",
+    description: "Automate complex DeFi operations with privacy-first agents that handle transactions securely."
   },
   {
     icon: <CreditCard className="w-8 h-8" />,
-    title: "Confidential Payments",
-    description: "Process payments with full anonymity and transaction privacy guarantees."
+    title: "Payment Processors",
+    description: "Create autonomous payment processing agents with integrated ZKx401 privacy protocols."
   }
 ];
 
@@ -36,11 +36,11 @@ export default function UseCasesSection() {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-headline-1 font-semibold text-text-primary mb-6">
-            Built For
+            Agent Deployment Scenarios
           </h2>
           <p className="text-body text-text-secondary leading-relaxed max-w-3xl mx-auto">
-            ZKx401 is designed for various use cases requiring high privacy 
-            in the blockchain ecosystem and decentralized applications.
+            Deploy private autonomous agents for various blockchain operations. 
+            Each agent comes with integrated ZKx401 payment processing and privacy protection.
           </p>
         </div>
 
@@ -74,16 +74,16 @@ export default function UseCasesSection() {
         <div className="mt-16 text-center animate-slide-up" style={{animationDelay: '0.4s'}}>
           <div className="bg-background-card border border-border-subtle rounded-lg p-8 shadow-card max-w-2xl mx-auto">
             <p className="text-body text-text-secondary mb-6">
-              Ready to implement privacy-first solutions in your project?
+              Ready to deploy your first private agent with ZKx401 integration?
             </p>
             <button 
               onClick={() => {
-                const element = document.getElementById('quickstart');
+                const element = document.getElementById('features');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
               className="bg-accent-primary hover:bg-accent-hover text-white px-8 py-3 rounded-md font-semibold text-sm transition-all duration-150 transform hover:-translate-y-0.5 hover:shadow-glow-primary"
             >
-              Get Started Now
+              Deploy Agent Now
             </button>
           </div>
         </div>

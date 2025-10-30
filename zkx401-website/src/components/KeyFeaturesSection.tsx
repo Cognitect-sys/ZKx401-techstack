@@ -9,18 +9,18 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: <Shield className="w-6 h-6" />,
-    title: "Zero-Knowledge Proofs",
-    description: "Advanced cryptographic proofs that enable transaction validation without revealing sensitive information, ensuring maximum privacy with guaranteed security."
+    title: "Agent Privacy Layer",
+    description: "Deploy private agents with built-in zero-knowledge privacy. Each agent operates with complete confidentiality while handling blockchain transactions."
   },
   {
     icon: <Eye className="w-6 h-6" />,
-    title: "Anonymous Transactions",
-    description: "Fully anonymous transactions with hidden sender, receiver, and amounts. No possibility of on-chain tracking or analysis."
+    title: "ZKx401 Payment Integration",
+    description: "Seamless integration with ZKx401 protocol for anonymous payments. Agents can process transactions without revealing sensitive financial data."
   },
   {
     icon: <Lock className="w-6 h-6" />,
-    title: "Privacy-First Design",
-    description: "Architecture built with privacy as the foundation, not an afterthought. Every component designed to maintain complete confidentiality."
+    title: "Autonomous Security",
+    description: "Quantum-resistant security for autonomous operations. Your private agents remain protected against future cryptographic threats."
   }
 ];
 
@@ -31,11 +31,11 @@ export default function KeyFeaturesSection() {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-headline-1 font-semibold text-text-primary mb-6">
-            Privacy-First Features
+            Private Agent Platform Features
           </h2>
           <p className="text-body text-text-secondary leading-relaxed max-w-3xl mx-auto">
-            ZKx401 provides a comprehensive suite of privacy features specifically designed for 
-            the Solana blockchain community's need for high-level confidentiality and security.
+            Deploy autonomous private agents with built-in ZKx401 payment integration. 
+            Each agent operates with complete privacy and handles blockchain transactions securely.
           </p>
         </div>
 

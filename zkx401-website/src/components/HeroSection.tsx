@@ -28,23 +28,28 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-body-large text-text-secondary mb-12 leading-relaxed max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
-          Privacy-Enhanced x402 Protocol for Solana
+        <p className="text-body-large text-text-secondary mb-8 leading-relaxed max-w-3xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
+          Launch Your Private Agents with ZKx401 Integration Payments
+        </p>
+        
+        {/* Agent Description */}
+        <p className="text-body-medium text-text-muted mb-12 leading-relaxed max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '0.25s'}}>
+          Deploy autonomous private agents powered by zero-knowledge cryptography with seamless ZKx401 payment integration for blockchain-native transactions.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style={{animationDelay: '0.4s'}}>
           <button 
-            onClick={() => scrollToSection('quickstart')}
-            className="bg-accent-primary hover:bg-accent-hover text-white px-8 py-3 rounded-md font-semibold text-body transition-all duration-150 transform hover:-translate-y-0.5 hover:shadow-glow-primary min-w-[140px]"
+            onClick={() => scrollToSection('features')}
+            className="bg-accent-primary hover:bg-accent-hover text-white px-8 py-3 rounded-md font-semibold text-body transition-all duration-150 transform hover:-translate-y-0.5 hover:shadow-glow-primary min-w-[160px]"
           >
-            Get Started
+            Deploy Agents
           </button>
           <button 
-            onClick={() => scrollToSection('mission')}
-            className="border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-white px-8 py-3 rounded-md font-semibold text-body transition-all duration-150 transform hover:-translate-y-0.5 min-w-[140px]"
+            onClick={() => scrollToSection('usecases')}
+            className="border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-white px-8 py-3 rounded-md font-semibold text-body transition-all duration-150 transform hover:-translate-y-0.5 min-w-[160px]"
           >
-            View Documentation
+            Explore Use Cases
           </button>
         </div>
       </div>

@@ -22,47 +22,47 @@ export default function MissionSection() {
           {/* Content (60%) */}
           <div className="mt-10 lg:mt-0 lg:col-span-7">
             <h2 className="text-headline-1 font-semibold text-text-primary mb-8 animate-slide-up">
-              Privacy-First Protocol for Solana
+              Private Agent Platform with ZKx401 Integration
             </h2>
             
             <div className="space-y-6">
               <p className="text-body text-text-secondary leading-relaxed animate-slide-up" style={{animationDelay: '0.1s'}}>
-                ZKx401 represents a revolutionary approach to privacy in the Solana blockchain ecosystem. 
-                By integrating zero-knowledge proof technology, this protocol enables fully anonymous 
-                transactions without compromising transparency or performance.
+                ZKx401 is a comprehensive platform for launching and deploying autonomous private agents 
+                with built-in zero-knowledge payment integration. Each agent operates with complete privacy 
+                while handling blockchain transactions seamlessly.
               </p>
               
               <p className="text-body text-text-secondary leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
-                Built to address the growing demand for privacy-focused solutions in the crypto community, 
-                ZKx401 provides the necessary infrastructure for building confidential DeFi applications 
-                and private payment systems.
+                Whether you're building trading bots, service agents, or DeFi automation tools, 
+                ZKx401 provides the infrastructure needed for privacy-first autonomous operations 
+                with integrated payment processing capabilities.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 animate-slide-up" style={{animationDelay: '0.3s'}}>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
-                  <span className="text-small text-text-secondary">Anonymous transactions</span>
+                  <span className="text-small text-text-secondary">Autonomous agent deployment</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
-                  <span className="text-small text-text-secondary">Zero-knowledge proofs</span>
+                  <span className="text-small text-text-secondary">ZKx401 payment integration</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
-                  <span className="text-small text-text-secondary">Quantum-resistant security</span>
+                  <span className="text-small text-text-secondary">Privacy-first operations</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
-                  <span className="text-small text-text-secondary">Lightning-fast performance</span>
+                  <span className="text-small text-text-secondary">Blockchain-native transactions</span>
                 </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-8 animate-slide-up" style={{animationDelay: '0.4s'}}>
                 <button className="bg-accent-primary hover:bg-accent-hover text-white px-6 py-3 rounded-md font-semibold text-sm transition-all duration-150 transform hover:-translate-y-0.5 hover:shadow-glow-primary">
-                  Learn More
+                  Launch Agent
                 </button>
                 <button className="border border-border-moderate hover:border-accent-primary text-text-secondary hover:text-accent-primary px-6 py-3 rounded-md font-semibold text-sm transition-all duration-150">
-                  View Technical Docs
+                  API Documentation
                 </button>
               </div>
             </div>
