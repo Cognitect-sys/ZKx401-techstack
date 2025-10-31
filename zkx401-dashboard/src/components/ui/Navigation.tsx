@@ -64,16 +64,46 @@ const Navigation: React.FC = () => {
 
   return (
     <>
+      {/* Development Banner */}
+      <motion.div 
+        className="fixed top-0 w-full z-[60] bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-red-500/20 border-b border-amber-500/30 backdrop-blur-sm"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-2">
+          <div className="flex items-center justify-center">
+            <motion.div 
+              className="flex items-center gap-2 text-amber-300 text-sm font-semibold"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div 
+                className="w-2 h-2 bg-amber-400 rounded-full"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <span>🚧 DEVELOPMENT MODE - TESTNET ENVIRONMENT - DATA NOT PRODUCTION READY 🚧</span>
+              <motion.div 
+                className="w-2 h-2 bg-amber-400 rounded-full"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
       <motion.nav
         ref={navRef}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-12 w-full z-50 transition-all duration-300 ${
           scrolled 
             ? 'nav-blur border-b border-white/10 shadow-lg' 
             : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         role="navigation"
         aria-label="Main navigation"
       >

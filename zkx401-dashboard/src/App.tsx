@@ -30,7 +30,7 @@ function App() {
         >
           <Navigation />
           
-          <main>
+          <main className="pt-20">
             <HeroSection />
             <SimpleNetworkMonitor />
             <FacilitatorComparison />
