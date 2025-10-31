@@ -8,6 +8,7 @@ import FacilitatorComparison from './components/dashboard/FacilitatorComparison'
 import CompetitiveAdvantages from './components/dashboard/CompetitiveAdvantages';
 import PaymentRouting from './components/dashboard/PaymentRouting';
 import UseCasesSection from './components/dashboard/UseCasesSection';
+import RoadmapSection from './components/dashboard/RoadmapSection';
 import Footer from './components/ui/Footer';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <CompetitiveAdvantages />
             <PaymentRouting />
             <UseCasesSection />
+            <RoadmapSection />
           </main>
           
           <Footer />
