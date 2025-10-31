@@ -224,7 +224,7 @@ export const BootTerminal: React.FC<BootTerminalProps> = ({ onComplete }) => {
             transition={{ delay: 2 }}
           >
             <div className="text-gray-500 text-sm font-mono">
-              Press <span className="text-yellow-400 font-bold">ESC</span> to skip boot animation
+              Press <span className="text-yellow-400 font-bold">ESC</span> to skip
             </div>
           </motion.div>
         </div>
