@@ -127,13 +127,13 @@ export const BootTerminal: React.FC<BootTerminalProps> = ({ onComplete }) => {
       case 'command':
         return 'text-cyan-400';
       case 'output':
-        return 'text-gray-300';
+        return 'text-gray-400';
       case 'comment':
-        return 'text-yellow-400 italic';
+        return 'text-yellow-300 italic';
       case 'code':
-        return 'text-green-400';
+        return 'text-emerald-400';
       default:
-        return 'text-gray-300';
+        return 'text-gray-400';
     }
   };
 
