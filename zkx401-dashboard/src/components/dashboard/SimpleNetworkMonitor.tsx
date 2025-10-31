@@ -67,7 +67,7 @@ const SimpleNetworkMonitor: React.FC = () => {
     },
     {
       title: 'Market Cap',
-      value: '$12M',
+      value: '12M',
       prefix: '$',
       change: 18.7,
       changeType: 'positive' as const,

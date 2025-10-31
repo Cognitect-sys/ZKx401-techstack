@@ -26,27 +26,27 @@ import IntegrationWizard from './IntegrationWizard';
 const mockTransactions = {
   defi: {
     signature: '5WvgUPbQkJm...x402rDeFi',
-    amount: '$250.00',
+    amount: '250.00',
     status: 'confirmed',
     timestamp: '2025-10-31T03:45:00Z',
     zkProof: 'ZK-Proof-Hash: 0x1a2b3c4d...',
-    network: 'Solana Mainnet'
+    network: 'Solana Devnet'
   },
   nft: {
     signature: '4YuhXZcQkJm...x402rNFT',
-    amount: '$1,500.00',
+    amount: '1500.00',
     status: 'confirmed',
     timestamp: '2025-10-31T03:30:00Z',
     zkProof: 'ZK-Proof-Hash: 0x5e6f7g8h...',
-    network: 'Solana Mainnet'
+    network: 'Solana Devnet'
   },
   api: {
     signature: '3ZtvYAbQkJm...x402rAPI',
-    amount: '$25.00',
+    amount: '25.00',
     status: 'confirmed',
     timestamp: '2025-10-31T03:15:00Z',
     zkProof: 'ZK-Proof-Hash: 0x9i0j1k2l...',
-    network: 'Solana Mainnet'
+    network: 'Solana Devnet'
   }
 };
 
@@ -242,7 +242,15 @@ const TransactionModal: React.FC<TransactionModalProps> = ({ transaction, isOpen
               <div>
                 <label className="text-sm text-text-tertiary">Amount</label>
                 <p className="text-lg font-semibold text-text-primary mt-1">
-                  {realTransaction ? `$${realTransaction.amount.toFixed(2)}` : transaction?.amount || '$250.00'}
+                  {(() => {
+                    if (realTransaction) {
+                      return `$${realTransaction.amount.toFixed(2)}`;
+                    } else if (transaction?.amount) {
+                      return `$${transaction.amount}`;
+                    } else {
+                      return '$250.00';
+                    }
+                  })()}
                 </p>
               </div>
               <div>
@@ -491,7 +499,7 @@ const UseCasesSection: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-text-secondary">Amount</span>
-                    <span className="text-lg font-semibold text-text-primary">{currentUseCase.transaction.amount}</span>
+                    <span className="text-lg font-semibold text-text-primary">${currentUseCase.transaction.amount}</span>
                   </div>
                   
                   <div className="flex items-center justify-between">
