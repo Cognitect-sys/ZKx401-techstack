@@ -23,9 +23,9 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-250 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50 shadow-lg shadow-slate-900/50' 
+        ? 'bg-slate-950/85 backdrop-blur-lg border-b border-slate-700/60 shadow-lg shadow-black/30 shadow-[0_8px_32px_rgba(15,23,42,0.6)]' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

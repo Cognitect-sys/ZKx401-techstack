@@ -99,12 +99,20 @@ console.log('Payment processed anonymously:', payment.hash);`
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 z-50 transition-opacity duration-500 ${
+    <div className={`fixed inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 z-50 transition-opacity duration-500 ${
       isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
     }`}>
-      {/* Smoky Overlay Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent"></div>
+      {/* Enhanced Smoky Atmospheric Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/25 via-slate-900/40 to-slate-950/90"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_30%_50%_at_20%_30%,_rgba(59,130,246,0.1),transparent)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_25%_40%_at_85%_75%,_rgba(15,23,42,0.7),transparent)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(60deg,_transparent_30%,_rgba(30,58,138,0.15)_60%,_transparent_90%)]"></div>
+      <div className="absolute inset-0 bg-[conic-gradient(from_30deg_at_70%_60%,_rgba(96,165,250,0.03),_rgba(15,23,42,0.6),_rgba(96,165,250,0.03),_transparent)]"></div>
+      {/* Atmospheric Noise for Smoky Texture */}
+      <div className="absolute inset-0 opacity-3" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='smokeFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='6' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23smokeFilter)' opacity='0.3'/%3E%3C/svg%3E")`,
+        backgroundSize: '300px 300px'
+      }}></div>
       <div className="h-full flex items-center justify-center">
         <div className="w-full max-w-4xl mx-auto p-8">
           {/* Logo */}
@@ -114,29 +122,33 @@ console.log('Payment processed anonymously:', payment.hash);`
           </div>
 
           {/* Terminal Window */}
-          <div className="bg-slate-900/90 backdrop-blur-sm rounded-lg border border-slate-700/50 overflow-hidden shadow-2xl shadow-blue-950/20">
-            {/* Terminal Header */}
-            <div className="bg-slate-800/90 px-4 py-2 flex items-center space-x-2 border-b border-slate-700/50">
+          <div className="bg-slate-950/95 backdrop-blur-lg rounded-lg border border-slate-700/60 overflow-hidden shadow-2xl shadow-blue-950/30 shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+            {/* Enhanced Terminal Header with Smoky Effect */}
+            <div className="bg-gradient-to-r from-slate-800/95 via-slate-900/90 to-slate-800/95 px-4 py-3 flex items-center space-x-3 border-b border-slate-700/60 backdrop-blur-sm">
               <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div className="w-3.5 h-3.5 bg-red-500/90 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
+                <div className="w-3.5 h-3.5 bg-yellow-500/90 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+                <div className="w-3.5 h-3.5 bg-green-500/90 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
               </div>
-              <span className="text-slate-400 text-sm ml-4">zkx401-terminal</span>
-              <span className="text-slate-500 text-xs ml-auto">Press ESC to skip</span>
+              <span className="text-slate-300/90 text-sm ml-4 font-medium">zkx401-terminal</span>
+              <span className="text-slate-500/80 text-xs ml-auto">Press ESC to skip</span>
             </div>
 
-            {/* Terminal Content */}
-            <div className="p-4 font-mono text-sm bg-slate-900/50">
-              <div className="text-emerald-400 mb-2 font-semibold">$ zkx401 launch-agent --type=private --privacy=zk-proof</div>
+            {/* Enhanced Terminal Content with Glowing Text Effect */}
+            <div className="p-5 font-mono text-sm bg-slate-950/80 backdrop-blur-sm relative">
+              {/* Subtle glowing effect on text */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,_rgba(59,130,246,0.02),transparent)]"></div>
+              
+              <div className="relative z-10">
+                <div className="text-emerald-400/95 mb-3 font-semibold text-shadow-[0_0_8px_rgba(16,185,129,0.3)]">$ zkx401 launch-agent --type=private --privacy=zk-proof</div>
               
               {/* Boot messages */}
               <div className="space-y-1 min-h-[200px]">
                 {bootLines.slice(0, Math.max(currentLine, 0)).map((line, index) => (
                   <div 
                     key={index}
-                    className={`text-slate-300 animate-pulse ${
-                      index >= bootLines.length - 4 ? 'text-emerald-400 font-semibold' : ''
+                    className={`text-slate-300/95 animate-pulse text-shadow-[0_0_4px_rgba(148,163,184,0.2)] ${
+                      index >= bootLines.length - 4 ? 'text-emerald-400/95 font-semibold text-shadow-[0_0_8px_rgba(16,185,129,0.3)]' : ''
                     }`}
                     style={{
                       animationDelay: `${index * 0.05}s`
