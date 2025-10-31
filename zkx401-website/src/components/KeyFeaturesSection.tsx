@@ -48,10 +48,10 @@ const features: Feature[] = [
 
 export default function KeyFeaturesSection() {
   return (
-    <section className="py-16 lg:py-24 relative bg-gradient-to-b from-transparent via-slate-950/20 to-transparent">
-      {/* Atmospheric Smoky Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,_rgba(59,130,246,0.05),transparent)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_80%,_rgba(15,23,42,0.4),transparent)]"></div>
+    <section className="py-16 lg:py-24 relative bg-gradient-to-b from-transparent via-gray-950/15 to-transparent">
+      {/* Atmospheric Smoky Overlay - Black & White */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,_rgba(255,255,255,0.02),transparent)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_80%,_rgba(0,0,0,0.3),transparent)]"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -70,7 +70,7 @@ export default function KeyFeaturesSection() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-slate-950/80 backdrop-blur-lg border border-slate-700/60 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:shadow-blue-950/30 hover:border-slate-600/60 hover:-translate-y-2 group animate-slide-up relative shadow-[0_4px_32px_rgba(0,0,0,0.3)]"
+              className="bg-gray-950/80 backdrop-blur-lg border border-slate-700/60 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:shadow-gray-900/40 hover:border-slate-600/60 hover:-translate-y-2 group animate-slide-up relative shadow-[0_4px_32px_rgba(0,0,0,0.3)]"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               {/* Badge */}
