@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Privacy-first payment routing untuk Solana ecosystem dengan zero-knowledge proofs, 
-            competitive 30 basis points routing fee, dan real-time transaction monitoring.
+            fixed 0.1 USDC fee per transaction, dan real-time transaction monitoring.
           </motion.p>
 
           {/* Data Update Status */}

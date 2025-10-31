@@ -70,7 +70,7 @@ const useCases: UseCase[] = [
       'Privacy-first payment routing',
       'Instant transaction confirmation',
       'Zero-knowledge proof verification',
-      'Competitive 30 basis points fee'
+      'Fixed 0.1 USDC fee per transaction'
     ],
     transaction: mockTransactions.defi,
     demoSteps: [
@@ -557,7 +557,7 @@ const UseCasesSection: React.FC = () => {
                 <div className="p-4 bg-bg-secondary rounded-lg text-center">
                   <Coins className="w-6 h-6 text-accent-cyan mx-auto mb-2" />
                   <p className="text-sm text-text-tertiary">Avg. Fee</p>
-                  <p className="text-lg font-semibold text-text-primary">0.3%</p>
+                  <p className="text-lg font-semibold text-text-primary">0.1 USDC</p>
                 </div>
                 <div className="p-4 bg-bg-secondary rounded-lg text-center">
                   <Shield className="w-6 h-6 text-accent-green mx-auto mb-2" />

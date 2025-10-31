@@ -72,7 +72,7 @@ export const useOptimizedDashboard = (
         activeFacilitators: Math.floor(Math.random() * 100) + 45,
         marketCap: `$${(Math.random() * 50 + 10).toFixed(1)}M`,
         totalVolume: Math.random() * 10000000 + 5000000,
-        averageFee: 0.003
+        averageFee: 0.1
       },
       zkProofStats: {
         proofsGenerated: Math.floor(Math.random() * 1000) + 500,

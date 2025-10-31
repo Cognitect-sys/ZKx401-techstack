@@ -221,7 +221,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({
     const [txVolume, setTxVolume] = useState(10000);
     const [avgAmount, setAvgAmount] = useState(100);
 
-    const estimatedRevenue = (txVolume * avgAmount * 0.003); // 30bps = 0.3%
+    const estimatedRevenue = (txVolume * 0.1); // 0.1 USDC fixed fee per transaction
 
     return (
       <motion.div
@@ -278,7 +278,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({
               </div>
               <div className="text-sm text-text-secondary">Estimated Monthly Revenue</div>
               <div className="text-xs text-text-tertiary mt-2">
-                Based on 30 basis points routing fee
+                Based on 0.1 USDC fixed fee per transaction
               </div>
             </div>
           </div>

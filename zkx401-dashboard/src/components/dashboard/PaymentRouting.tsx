@@ -28,7 +28,7 @@ const PaymentRouting: React.FC = () => {
     {
       step: 4,
       title: 'Payment Routed',
-      description: 'Transaction routed ke seller dengan 30bps routing fee',
+      description: 'Transaction routed ke seller dengan 0.1 USDC routing fee',
       icon: <ArrowRight className="w-6 h-6" />,
       color: 'accent-cyan'
     },
@@ -195,12 +195,12 @@ const PaymentRouting: React.FC = () => {
               <div className="space-y-2">
                 <div className="text-2xl font-bold text-text-primary">$1,000</div>
                 <div className="text-text-secondary">Base Amount</div>
-                <div className="text-sm text-accent-cyan">+ $3 fee (30bps)</div>
-                <div className="text-lg font-semibold text-accent-cyan">Pays $1,003</div>
+                <div className="text-sm text-accent-cyan">+ $0.1 fee (0.1 USDC)</div>
+                <div className="text-lg font-semibold text-accent-cyan">Pays $1,000.10</div>
               </div>
             </motion.div>
 
-            {/* ZKx401 (30bps) */}
+            {/* ZKx401 (0.1 USDC) */}
             <motion.div
               className="text-center"
               whileHover={{ scale: 1.05 }}
@@ -211,9 +211,9 @@ const PaymentRouting: React.FC = () => {
                 <div className="text-lg font-semibold text-accent-purple">ZKx401</div>
               </div>
               <div className="space-y-2">
-                <div className="text-2xl font-bold text-text-primary">$3</div>
+                <div className="text-2xl font-bold text-text-primary">$0.1</div>
                 <div className="text-text-secondary">Routing Fee</div>
-                <div className="text-sm text-accent-purple">30 basis points</div>
+                <div className="text-sm text-accent-purple">0.1 USDC fixed</div>
                 <div className="text-lg font-semibold text-accent-purple">Revenue</div>
               </div>
             </motion.div>

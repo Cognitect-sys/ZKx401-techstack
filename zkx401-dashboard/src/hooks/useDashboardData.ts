@@ -67,7 +67,7 @@ export const useDashboardData = () => {
       totalTransactions: 0,
       totalVolume: 0,
       activeFacilitators: 23,
-      averageFee: 0.003,
+      averageFee: 0.1,
       marketCap: 1200000000,
     },
     transactionVolumeHistory: [],

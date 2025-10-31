@@ -36,7 +36,7 @@ const integrationSteps = [
       features: [
         'Zero-knowledge proof validation',
         'Privacy-preserving transaction routing',
-        'Competitive 30 basis points fee',
+        'Fixed 0.1 USDC fee per transaction',
         'Real-time onchain verification',
         'Seamless Solana integration'
       ],
@@ -119,7 +119,7 @@ async function processPayment(amount, recipient) {
     amount,
     recipient,
     zkProof,
-    fee: 0.003 // 0.3% fee
+    fee: 0.1 // 0.1 USDC fixed fee
   });
 
   // 4. Verify onchain

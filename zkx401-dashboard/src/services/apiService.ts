@@ -194,7 +194,7 @@ class APIService {
         totalTransactions,
         totalVolume,
         activeFacilitators: 23,
-        averageFee: 0.003, // 30 basis points
+        averageFee: 0.1, // 0.1 USDC fixed fee
         marketCap,
       };
     } catch (error) {
@@ -203,7 +203,7 @@ class APIService {
         totalTransactions: 594000,
         totalVolume: 640000000,
         activeFacilitators: 23,
-        averageFee: 0.003,
+        averageFee: 0.1,
         marketCap: 1200000000,
       };
     }
