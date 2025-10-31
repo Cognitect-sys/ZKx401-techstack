@@ -12,69 +12,68 @@ const generateBootCode = (): CodeLine[] => {
   
   // ZKx401 Rust-First Blockchain initialization code
   const bootSequence: CodeLine[] = [
-    { line: "[INFO] Initializing ZKx401 Protocol...", delay: 300, type: 'output' },
-    { line: "zkx401@mainnet:~$ git clone https://github.com/zkx401/zkx401-core.git", delay: 600, type: 'command' },
-    { line: "Cloning into 'zkx401-core'... done.", delay: 1000, type: 'output' },
-    { line: "// Rust Zero-Knowledge Proof Generation", delay: 1400, type: 'comment' },
-    { line: "use ark_groth16::{ProvingKey, VerifyingKey, Proof};", delay: 1800, type: 'code' },
-    { line: "use ark_bn254::{Bn254, Fr as Field};", delay: 2200, type: 'code' },
-    { line: "use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};", delay: 2600, type: 'code' },
-    { line: "use rand::{rngs::StdRng, SeedableRng};", delay: 3000, type: 'code' },
-    { line: "", delay: 3400, type: 'output' },
-    { line: "pub struct ZKx401Circuit {", delay: 3800, type: 'code' },
-    { line: "    pub secret_key: Field,", delay: 4200, type: 'code' },
-    { line: "    pub commitment: Field,", delay: 4600, type: 'code' },
-    { line: "    pub nullifier: Field,", delay: 5000, type: 'code' },
-    { line: "}", delay: 5400, type: 'code' },
-    { line: "", delay: 5800, type: 'output' },
-    { line: "fn generate_zk_proof(circuit: &ZKx401Circuit) -> Result<Proof<Bn254>> {", delay: 6200, type: 'code' },
-    { line: "    let mut rng = StdRng::from_entropy();", delay: 6600, type: 'code' },
-    { line: "    let pk = setup_circuit::<Bn254>(&circuit, &mut rng)?;", delay: 7000, type: 'code' },
-    { line: "    let proof = groth16::prove(&pk, &circuit, &mut rng)?;", delay: 7400, type: 'code' },
-    { line: "    Ok(proof)", delay: 7800, type: 'code' },
-    { line: "}", delay: 8200, type: 'code' },
-    { line: "", delay: 8600, type: 'output' },
-    { line: "[COMPILATION] Rust ZK circuits compiled successfully", delay: 9000, type: 'output' },
-    { line: "[INFO] Generating zero-knowledge proof...", delay: 9400, type: 'output' },
-    { line: "[PROGRESS] Circuit verification: 67% complete", delay: 9800, type: 'output' },
-    { line: "[PROGRESS] Proof generation: 89% complete", delay: 10200, type: 'output' },
-    { line: "[SUCCESS] ZK proof generated in 1.2s", delay: 10600, type: 'output' },
-    { line: "", delay: 11000, type: 'output' },
-    { line: "// Solana Integration Layer", delay: 11400, type: 'comment' },
-    { line: "use solana_program::{program_error::ProgramError};", delay: 11800, type: 'code' },
-    { line: "use solana_sdk::{transaction::VersionedTransaction};", delay: 12200, type: 'code' },
-    { line: "", delay: 12600, type: 'output' },
-    { line: "zkx401@mainnet:~$ ./zkx401-cli initialize --network mainnet", delay: 13000, type: 'command' },
-    { line: "[INFO] Connecting to Solana RPC endpoints...", delay: 13400, type: 'output' },
-    { line: "[SUCCESS] Connected to 12 RPC endpoints", delay: 13800, type: 'output' },
-    { line: "[SYNC] Block 15,847 - ZKx401 transaction #1,243,892", delay: 14200, type: 'output' },
-    { line: "[SYNC] Processing confidential payments...", delay: 14600, type: 'output' },
-    { line: "[PROGRESS] Blockchain sync: 94% complete", delay: 15000, type: 'output' },
-    { line: "zkx401@mainnet:~$ ./zkx401-cli status", delay: 15400, type: 'command' },
-    { line: "Node Status: SYNCHRONIZED", delay: 15800, type: 'output' },
-    { line: "Active Facilitators: 847", delay: 16200, type: 'output' },
-    { line: "ZK Circuits Verified: 100%", delay: 16600, type: 'output' },
-    { line: "Privacy Score: 94.7/100", delay: 17000, type: 'output' },
-    { line: "", delay: 17400, type: 'output' },
-    { line: "[SUCCESS] ZKx401 Dashboard Ready", delay: 17800, type: 'output' },
-    { line: "zkx401@mainnet:~$ Loading dashboard interface...", delay: 18200, type: 'command' },
-    { line: "[INIT] Rendering components...", delay: 18600, type: 'output' },
-    { line: "[LOAD] NetworkMonitor: SUCCESS", delay: 19000, type: 'output' },
-    { line: "[LOAD] FacilitatorComparison: SUCCESS", delay: 19400, type: 'output' },
-    { line: "[LOAD] UseCasesSection: SUCCESS", delay: 19800, type: 'output' },
-    { line: "[LOAD] IntegrationWizard: SUCCESS", delay: 20200, type: 'output' },
-    { line: "", delay: 20600, type: 'output' },
-    { line: "🚀 ZKx401 Professional Dashboard Loading...", delay: 21000, type: 'output' },
-    { line: "🎯 Rust-powered ZK cryptography initialized", delay: 21400, type: 'output' },
-    { line: "⚡ Ultra-clean performance optimized", delay: 21800, type: 'output' },
-    { line: "🔒 Privacy-first architecture active", delay: 22200, type: 'output' },
-    { line: "✨ World-class UI/UX standards ready", delay: 22600, type: 'output' },
-    { line: "", delay: 23000, type: 'output' },
-    { line: "Redirecting to dashboard in 3 seconds...", delay: 23400, type: 'output' },
-    { line: "3", delay: 24600, type: 'output' },
-    { line: "2", delay: 25200, type: 'output' },
-    { line: "1", delay: 25800, type: 'output' },
-    { line: "✅ Redirecting to main dashboard...", delay: 26400, type: 'output' },
+    { line: "[INFO] Initializing ZKx401 Protocol...", delay: 150, type: 'output' },
+    { line: "zkx401@mainnet:~$ git clone https://github.com/zkx401/zkx401-core.git", delay: 300, type: 'command' },
+    { line: "Cloning into 'zkx401-core'... done.", delay: 500, type: 'output' },
+    { line: "// Rust Zero-Knowledge Proof Generation", delay: 700, type: 'comment' },
+    { line: "use ark_groth16::{ProvingKey, VerifyingKey, Proof};", delay: 900, type: 'code' },
+    { line: "use ark_bn254::{Bn254, Fr as Field};", delay: 1100, type: 'code' },
+    { line: "use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};", delay: 1300, type: 'code' },
+    { line: "use rand::{rngs::StdRng, SeedableRng};", delay: 1500, type: 'code' },
+    { line: "", delay: 1700, type: 'output' },
+    { line: "pub struct ZKx401Circuit {", delay: 1900, type: 'code' },
+    { line: "    pub secret_key: Field,", delay: 2100, type: 'code' },
+    { line: "    pub commitment: Field,", delay: 2300, type: 'code' },
+    { line: "    pub nullifier: Field,", delay: 2500, type: 'code' },
+    { line: "}", delay: 2700, type: 'code' },
+    { line: "", delay: 2900, type: 'output' },
+    { line: "fn generate_zk_proof(circuit: &ZKx401Circuit) -> Result<Proof<Bn254>> {", delay: 3100, type: 'code' },
+    { line: "    let mut rng = StdRng::from_entropy();", delay: 3300, type: 'code' },
+    { line: "    let pk = setup_circuit::<Bn254>(&circuit, &mut rng)?;", delay: 3500, type: 'code' },
+    { line: "    let proof = groth16::prove(&pk, &circuit, &mut rng)?;", delay: 3700, type: 'code' },
+    { line: "    Ok(proof)", delay: 3900, type: 'code' },
+    { line: "}", delay: 4100, type: 'code' },
+    { line: "", delay: 4300, type: 'output' },
+    { line: "[COMPILATION] Rust ZK circuits compiled successfully", delay: 4500, type: 'output' },
+    { line: "[INFO] Generating zero-knowledge proof...", delay: 4700, type: 'output' },
+    { line: "[PROGRESS] Circuit verification: 67% complete", delay: 4900, type: 'output' },
+    { line: "[PROGRESS] Proof generation: 89% complete", delay: 5100, type: 'output' },
+    { line: "[SUCCESS] ZK proof generated in 1.2s", delay: 5300, type: 'output' },
+    { line: "", delay: 5500, type: 'output' },
+    { line: "// Solana Integration Layer", delay: 5700, type: 'comment' },
+    { line: "use solana_program::{program_error::ProgramError};", delay: 5900, type: 'code' },
+    { line: "use solana_sdk::{transaction::VersionedTransaction};", delay: 6100, type: 'code' },
+    { line: "", delay: 6300, type: 'output' },
+    { line: "zkx401@mainnet:~$ ./zkx401-cli initialize --network mainnet", delay: 6500, type: 'command' },
+    { line: "[INFO] Connecting to Solana RPC endpoints...", delay: 6700, type: 'output' },
+    { line: "[SUCCESS] Connected to 12 RPC endpoints", delay: 6900, type: 'output' },
+    { line: "[SYNC] Block 15,847 - ZKx401 transaction #1,243,892", delay: 7100, type: 'output' },
+    { line: "[SYNC] Processing confidential payments...", delay: 7300, type: 'output' },
+    { line: "[PROGRESS] Blockchain sync: 94% complete", delay: 7500, type: 'output' },
+    { line: "zkx401@mainnet:~$ ./zkx401-cli status", delay: 7700, type: 'command' },
+    { line: "Node Status: SYNCHRONIZED", delay: 7900, type: 'output' },
+    { line: "Active Facilitators: 847", delay: 8100, type: 'output' },
+    { line: "ZK Circuits Verified: 100%", delay: 8300, type: 'output' },
+    { line: "Privacy Score: 94.7/100", delay: 8500, type: 'output' },
+    { line: "", delay: 8700, type: 'output' },
+    { line: "[SUCCESS] ZKx401 Dashboard Ready", delay: 8900, type: 'output' },
+    { line: "zkx401@mainnet:~$ Loading dashboard interface...", delay: 9100, type: 'command' },
+    { line: "[INIT] Rendering components...", delay: 9300, type: 'output' },
+    { line: "[LOAD] NetworkMonitor: SUCCESS", delay: 9500, type: 'output' },
+    { line: "[LOAD] FacilitatorComparison: SUCCESS", delay: 9700, type: 'output' },
+    { line: "[LOAD] UseCasesSection: SUCCESS", delay: 9900, type: 'output' },
+    { line: "[LOAD] IntegrationWizard: SUCCESS", delay: 10100, type: 'output' },
+    { line: "", delay: 10300, type: 'output' },
+    { line: "🚀 ZKx401 Professional Dashboard Loading...", delay: 10500, type: 'output' },
+    { line: "🎯 Rust-powered ZK cryptography initialized", delay: 10700, type: 'output' },
+    { line: "⚡ Ultra-clean performance optimized", delay: 10900, type: 'output' },
+    { line: "🔒 Privacy-first architecture active", delay: 11100, type: 'output' },
+    { line: "✨ World-class UI/UX standards ready", delay: 11300, type: 'output' },
+    { line: "", delay: 11500, type: 'output' },
+    { line: "Redirecting to dashboard in 2 seconds...", delay: 11700, type: 'output' },
+    { line: "2", delay: 12300, type: 'output' },
+    { line: "1", delay: 12900, type: 'output' },
+    { line: "✅ Redirecting to main dashboard...", delay: 13500, type: 'output' },
   ];
 
   return bootSequence;
@@ -90,6 +89,18 @@ export const BootTerminal: React.FC<BootTerminalProps> = ({ onComplete }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
   const codeSequence = useRef(generateBootCode());
 
+  // ESC key to skip boot animation
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onComplete();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [onComplete]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (currentLineIndex < codeSequence.current.length) {
@@ -104,9 +115,9 @@ export const BootTerminal: React.FC<BootTerminalProps> = ({ onComplete }) => {
         // After all lines, wait and complete
         setTimeout(() => {
           onComplete();
-        }, 2000);
+        }, 1000);
       }
-    }, currentLineIndex === 0 ? 100 : codeSequence.current[currentLineIndex - 1]?.delay || 500);
+    }, currentLineIndex === 0 ? 50 : codeSequence.current[currentLineIndex - 1]?.delay || 200);
 
     return () => clearTimeout(timer);
   }, [currentLineIndex, onComplete]);
@@ -202,6 +213,18 @@ export const BootTerminal: React.FC<BootTerminalProps> = ({ onComplete }) => {
             </div>
             <div className="text-cyan-400 text-sm font-mono">
               {Math.round((currentLineIndex / codeSequence.current.length) * 100)}%
+            </div>
+          </motion.div>
+
+          {/* ESC Skip indicator */}
+          <motion.div 
+            className="mt-4 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2 }}
+          >
+            <div className="text-gray-500 text-sm font-mono">
+              Press <span className="text-yellow-400 font-bold">ESC</span> to skip boot animation
             </div>
           </motion.div>
         </div>
