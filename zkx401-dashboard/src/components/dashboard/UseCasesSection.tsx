@@ -209,7 +209,7 @@ const TransactionModal: React.FC<TransactionModalProps> = ({ transaction, isOpen
             <span className="text-accent-green font-semibold">
               Transaction {realTransaction?.status === 'confirmed' ? 'Confirmed' : 'Pending'}
             </span>
-            <span className="text-text-tertiary text-sm">on Solana Mainnet</span>
+            <span className="text-text-tertiary text-sm">on Solana Devnet</span>
             {realTransaction && (
               <div className="flex items-center gap-1">
                 <Wallet className="w-4 h-4 text-accent-cyan" />
