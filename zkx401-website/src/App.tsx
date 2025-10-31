@@ -18,7 +18,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background-near-white font-primary text-text-primary antialiased">
+    <div className="min-h-screen bg-background-near-black font-primary text-text-primary antialiased relative overflow-hidden">
+      {/* Smoky Background Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 opacity-60"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
+      <div className="relative z-10">
       {showBootScreen ? (
         <BootScreen onComplete={handleBootComplete} />
       ) : (
@@ -35,6 +39,7 @@ function App() {
           </main>
         </>
       )}
+      </div>
     </div>
   );
 }

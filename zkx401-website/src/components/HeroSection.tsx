@@ -9,7 +9,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background-pure-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-transparent overflow-hidden">
       {/* Animated Particle Background */}
       <ParticleBackground />
 

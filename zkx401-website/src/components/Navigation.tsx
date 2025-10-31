@@ -25,7 +25,7 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-250 ${
       isScrolled 
-        ? 'bg-background-pure-white/95 backdrop-blur-md border-b border-border-subtle shadow-sm' 
+        ? 'bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50 shadow-lg shadow-slate-900/50' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +83,7 @@ export default function Navigation() {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background-pure-white/95 backdrop-blur-md border-b border-border-subtle shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 shadow-lg">
               <button 
                 onClick={() => scrollToSection('docs')}
                 className="block w-full text-left px-3 py-2 text-text-secondary hover:text-text-primary transition-colors duration-150 font-medium text-sm"

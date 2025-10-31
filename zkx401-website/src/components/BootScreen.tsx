@@ -99,9 +99,12 @@ console.log('Payment processed anonymously:', payment.hash);`
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 bg-black z-50 transition-opacity duration-500 ${
+    <div className={`fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 z-50 transition-opacity duration-500 ${
       isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
     }`}>
+      {/* Smoky Overlay Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent"></div>
       <div className="h-full flex items-center justify-center">
         <div className="w-full max-w-4xl mx-auto p-8">
           {/* Logo */}
@@ -111,29 +114,29 @@ console.log('Payment processed anonymously:', payment.hash);`
           </div>
 
           {/* Terminal Window */}
-          <div className="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden shadow-2xl">
+          <div className="bg-slate-900/90 backdrop-blur-sm rounded-lg border border-slate-700/50 overflow-hidden shadow-2xl shadow-blue-950/20">
             {/* Terminal Header */}
-            <div className="bg-gray-800 px-4 py-2 flex items-center space-x-2">
+            <div className="bg-slate-800/90 px-4 py-2 flex items-center space-x-2 border-b border-slate-700/50">
               <div className="flex space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="text-gray-400 text-sm ml-4">zkx401-terminal</span>
-              <span className="text-gray-500 text-xs ml-auto">Press ESC to skip</span>
+              <span className="text-slate-400 text-sm ml-4">zkx401-terminal</span>
+              <span className="text-slate-500 text-xs ml-auto">Press ESC to skip</span>
             </div>
 
             {/* Terminal Content */}
-            <div className="p-4 font-mono text-sm">
-              <div className="text-green-400 mb-2">$ zkx401 launch-agent --type=private --privacy=zk-proof</div>
+            <div className="p-4 font-mono text-sm bg-slate-900/50">
+              <div className="text-emerald-400 mb-2 font-semibold">$ zkx401 launch-agent --type=private --privacy=zk-proof</div>
               
               {/* Boot messages */}
               <div className="space-y-1 min-h-[200px]">
                 {bootLines.slice(0, Math.max(currentLine, 0)).map((line, index) => (
                   <div 
                     key={index}
-                    className={`text-gray-300 animate-pulse ${
-                      index >= bootLines.length - 4 ? 'text-green-400 font-semibold' : ''
+                    className={`text-slate-300 animate-pulse ${
+                      index >= bootLines.length - 4 ? 'text-emerald-400 font-semibold' : ''
                     }`}
                     style={{
                       animationDelay: `${index * 0.05}s`
@@ -145,7 +148,7 @@ console.log('Payment processed anonymously:', payment.hash);`
                 
                 {/* Show current line being typed */}
                 {currentLine < bootLines.length && (
-                  <div className="text-green-400 animate-pulse">
+                  <div className="text-emerald-400 animate-pulse">
                     {bootLines[currentLine] && (
                       <>
                         {bootLines[currentLine]}
@@ -158,19 +161,41 @@ console.log('Payment processed anonymously:', payment.hash);`
 
               {/* Code snippets when available */}
               {currentLine > 5 && (
-                <div className="mt-4 pt-4 border-t border-gray-700">
-                  <div className="text-blue-400 mb-2"># Code Generation:</div>
+                <div className="mt-4 pt-4 border-t border-slate-700/50">
+                  <div className="text-cyan-400 mb-2 font-semibold"># Code Generation:</div>
                   {codeSnippets.map((snippet, index) => (
                     <div 
                       key={index}
-                      className={`text-gray-400 text-xs mb-2 transition-all duration-300 ${
+                      className={`text-slate-400 text-xs mb-2 transition-all duration-300 ${
                         currentLine > 6 + index * 2 ? 'opacity-100' : 'opacity-0'
                       }`}
                       style={{
                         animationDelay: `${(currentLine - 6 - index * 2) * 0.2}s`
                       }}
                     >
-                      <pre>{snippet}</pre>
+                      <pre className="text-slate-300">
+                        {snippet.split('\n').map((line, lineIndex) => {
+                          // Simple syntax highlighting
+                          if (line.trim().startsWith('//')) {
+                            return <div key={lineIndex} className="text-yellow-400/80 font-mono">{line}</div>;
+                          }
+                          
+                          // Highlight keywords with simple string replacement
+                          let processedLine = line;
+                          const keywordRegex = /\b(const|new|await|import|from|class|function|if|else|for|while|return|public|private)\b/gi;
+                          processedLine = processedLine.replace(keywordRegex, '<span class="text-emerald-400 font-semibold">$1</span>');
+                          
+                          // Highlight strings
+                          const stringRegex = /(['"`])([^'"`]*?)\1/gi;
+                          processedLine = processedLine.replace(stringRegex, '<span class="text-cyan-400">$1$2$1</span>');
+                          
+                          // Highlight numbers
+                          const numberRegex = /\b(\d+)\b/g;
+                          processedLine = processedLine.replace(numberRegex, '<span class="text-orange-400">$1</span>');
+                          
+                          return <div key={lineIndex} className="font-mono" dangerouslySetInnerHTML={{ __html: processedLine }} />;
+                        })}
+                      </pre>
                     </div>
                   ))}
                 </div>
@@ -180,18 +205,19 @@ console.log('Payment processed anonymously:', payment.hash);`
 
           {/* Loading bar */}
           <div className="mt-6">
-            <div className="bg-gray-700 rounded-full h-2 overflow-hidden">
+            <div className="bg-slate-800/50 rounded-full h-2 overflow-hidden border border-slate-700/30">
               <div 
-                className="bg-gradient-to-r from-green-400 to-blue-500 h-full transition-all duration-300 ease-out"
+                className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 h-full transition-all duration-300 ease-out shadow-lg shadow-emerald-400/20"
                 style={{ width: `${Math.min((currentLine / bootLines.length) * 100, 100)}%` }}
               ></div>
             </div>
-            <div className="text-center text-gray-400 text-xs mt-2">
+            <div className="text-center text-slate-400 text-xs mt-2">
               {currentLine >= bootLines.length ? '100% Complete' : `${Math.round((currentLine / bootLines.length) * 100)}% Complete`}
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

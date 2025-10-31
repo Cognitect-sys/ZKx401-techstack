@@ -48,7 +48,7 @@ const features: Feature[] = [
 
 export default function KeyFeaturesSection() {
   return (
-    <section className="py-16 lg:py-24 bg-background-pure-white">
+    <section className="py-16 lg:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
@@ -66,7 +66,7 @@ export default function KeyFeaturesSection() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-background-card border border-border-subtle rounded-lg p-8 transition-all duration-250 hover:shadow-card-hover hover:-translate-y-1 group animate-slide-up relative"
+              className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8 transition-all duration-250 hover:shadow-xl hover:shadow-blue-950/20 hover:border-slate-600/50 hover:-translate-y-1 group animate-slide-up relative"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               {/* Badge */}
@@ -74,16 +74,16 @@ export default function KeyFeaturesSection() {
                 <div className="absolute top-4 right-4">
                   <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                     feature.badge === 'Daydreams' 
-                      ? 'bg-purple-100 text-purple-800'
+                      ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
                       : feature.badge === 'New'
-                      ? 'bg-green-100 text-green-800'
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                       : feature.badge === 'Enhanced'
-                      ? 'bg-blue-100 text-blue-800'
+                      ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
                       : feature.badge === 'Beta'
-                      ? 'bg-yellow-100 text-yellow-800'
+                      ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
                       : feature.badge === 'Core'
-                      ? 'bg-red-100 text-red-800'
-                      : 'bg-gray-100 text-gray-800'
+                      ? 'bg-red-500/20 text-red-300 border border-red-500/30'
+                      : 'bg-slate-500/20 text-slate-300 border border-slate-500/30'
                   }`}>
                     {feature.badge}
                   </span>
