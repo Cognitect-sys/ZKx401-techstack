@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { BootTerminal } from './components/BootTerminal';
 import Navigation from './components/ui/Navigation';
 import HeroSection from './components/dashboard/HeroSection';
 import SimpleNetworkMonitor from './components/dashboard/SimpleNetworkMonitor';
@@ -9,21 +11,38 @@ import UseCasesSection from './components/dashboard/UseCasesSection';
 import Footer from './components/ui/Footer';
 
 function App() {
+  const [showBootScreen, setShowBootScreen] = useState(true);
+
+  const handleBootComplete = () => {
+    setShowBootScreen(false);
+  };
+
   return (
-    <div className="dashboard-container">
-      <Navigation />
-      
-      <main>
-        <HeroSection />
-        <SimpleNetworkMonitor />
-        <FacilitatorComparison />
-        <CompetitiveAdvantages />
-        <PaymentRouting />
-        <UseCasesSection />
-      </main>
-      
-      <Footer />
-    </div>
+    <>
+      {showBootScreen ? (
+        <BootTerminal onComplete={handleBootComplete} />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="dashboard-container"
+        >
+          <Navigation />
+          
+          <main>
+            <HeroSection />
+            <SimpleNetworkMonitor />
+            <FacilitatorComparison />
+            <CompetitiveAdvantages />
+            <PaymentRouting />
+            <UseCasesSection />
+          </main>
+          
+          <Footer />
+        </motion.div>
+      )}
+    </>
   );
 }
 
